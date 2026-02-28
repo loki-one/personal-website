@@ -1,340 +1,1637 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-  <!-- SEO: Primary -->
   <title>Lokesh Jadhav | Senior SAP Developer — ABAP, Fiori &amp; PSM Expert | Walldorf, Germany</title>
   <meta name="description" content="Lokesh Jadhav is a Senior Software Developer at SAP with 7+ years of expertise in ABAP, SAP Fiori Elements, Core Data Services (CDS), and Public Sector Management (PSM). Based in Walldorf, Germany. Open to new opportunities." />
-  <meta name="keywords" content="Lokesh Jadhav, SAP Developer, ABAP Developer, Fiori Developer, SAP PSM, Core Data Services, CDS, BOPF, SAPUI5, SAP Fiori Elements, Senior Developer Germany, SAP Walldorf, software engineer Germany, SAP HANA, Business Application Studio, CBC Configuration, SSCUI" />
+  <meta name="keywords" content="Lokesh Jadhav, SAP Developer, ABAP Developer, Fiori Developer, SAP PSM, CDS, BOPF, SAPUI5, SAP Fiori Elements, Senior Developer Germany, SAP Walldorf, SAP HANA, Business Application Studio, SSCUI" />
   <meta name="author" content="Lokesh Jadhav" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://loki-one.github.io/personal-website/" />
 
-  <!-- SEO: Open Graph -->
   <meta property="og:type" content="profile" />
-  <meta property="og:title" content="Lokesh Jadhav | Senior SAP Developer — ABAP, Fiori &amp; PSM Expert" />
-  <meta property="og:description" content="7+ years building enterprise-grade SAP applications. Expert in ABAP, Fiori Elements, CDS, and SAP Public Sector Management. Based in Germany — open to new opportunities." />
+  <meta property="og:title" content="Lokesh Jadhav | Senior SAP Developer" />
+  <meta property="og:description" content="7+ years building enterprise SAP applications. ABAP, Fiori Elements, CDS, PSM. Based in Germany — open to opportunities." />
   <meta property="og:url" content="https://loki-one.github.io/personal-website/" />
-  <meta property="og:site_name" content="Lokesh Jadhav — Portfolio" />
-
-  <!-- SEO: Twitter Card -->
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Lokesh Jadhav | Senior SAP Developer" />
-  <meta name="twitter:description" content="7+ years in SAP development — ABAP, Fiori, PSM. Based in Germany. Open to opportunities." />
 
-  <!-- SEO: Structured Data -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Lokesh Jadhav",
-    "jobTitle": "Senior Software Developer",
-    "description": "Senior SAP Developer specialising in ABAP, SAP Fiori Elements, Core Data Services, and Public Sector Management (PSM) applications.",
-    "url": "https://loki-one.github.io/personal-website/",
-    "address": { "@type": "PostalAddress", "addressLocality": "Altlussheim", "addressCountry": "DE" },
-    "sameAs": ["https://github.com/loki-one"],
-    "worksFor": { "@type": "Organization", "name": "SAP SE", "url": "https://www.sap.com" },
-    "alumniOf": [
-      { "@type": "EducationalOrganization", "name": "Hof University of Applied Sciences" },
-      { "@type": "EducationalOrganization", "name": "University of Mumbai" }
-    ],
-    "knowsAbout": ["ABAP", "SAP Fiori", "Core Data Services", "SAPUI5", "SAP HANA", "Public Sector Management", "Azure Pipelines", "GitHub"]
-  }
+  {"@context":"https://schema.org","@type":"Person","name":"Lokesh Jadhav","jobTitle":"Senior Software Developer","url":"https://loki-one.github.io/personal-website/","address":{"@type":"PostalAddress","addressLocality":"Altlussheim","addressCountry":"DE"},"sameAs":["https://github.com/loki-one"],"worksFor":{"@type":"Organization","name":"SAP SE"},"alumniOf":[{"@type":"EducationalOrganization","name":"Hof University of Applied Sciences"},{"@type":"EducationalOrganization","name":"University of Mumbai"}]}
   </script>
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@700;800&display=swap" rel="stylesheet" />
 
   <style>
-    /* ── RESET & BASE ── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    /* ============================================
+       RESET
+    ============================================ */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-    /* CRITICAL: prevent ALL horizontal scroll */
-    html, body {
+    html {
+      scroll-behavior: smooth;
       overflow-x: hidden;
-      max-width: 100%;
     }
-
-    :root {
-      /* ── New Colour Palette: Forest / Teal ── */
-      --bg:           #F4F7F4;   /* Soft Sage    — page background    */
-      --white:        #FFFFFF;   /* Pure White   — cards, panels      */
-      --forest:       #1A3D2B;   /* Deep Forest  — headings, dark bg  */
-      --forest-light: #2A5C40;   /* Mid Forest   — hover dark bg      */
-      --teal:         #0D7A5F;   /* Rich Teal    — primary accent     */
-      --teal-hover:   #0A6550;   /* Deep Teal    — hover state        */
-      --teal-light:   #E8F5F0;   /* Tint Teal    — badge backgrounds  */
-      --amber:        #D97706;   /* Warm Amber   — highlight/grade    */
-      --amber-light:  #FEF3C7;   /* Tint Amber   — highlight bg       */
-      --success:      #059669;   /* Emerald      — available badge    */
-      --text:         #111C17;   /* Near Black   — primary text       */
-      --text-2:       #3D5247;   /* Forest Grey  — secondary text     */
-      --text-muted:   #7A9183;   /* Muted Sage   — labels, captions   */
-      --border:       #D4E0D8;   /* Sage Border  — dividers, edges    */
-      --border-light: #EBF2ED;   /* Light Sage   — subtle dividers    */
-      /* Shadows */
-      --shadow-sm: 0 1px 3px rgba(26,61,43,0.07), 0 1px 2px rgba(26,61,43,0.05);
-      --shadow-md: 0 4px 20px rgba(26,61,43,0.10);
-      --shadow-lg: 0 16px 48px rgba(26,61,43,0.13);
-      /* Radii */
-      --radius:    14px;
-      --radius-sm: 8px;
-      /* Fonts */
-      --font-display: 'Sora', sans-serif;
-      --font-body:    'Inter', sans-serif;
-    }
-
-    html { scroll-behavior: smooth; }
 
     body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: var(--font-body);
+      overflow-x: hidden;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       font-size: 15px;
       line-height: 1.7;
+      color: #1a2e23;
+      background: #f5f7f5;
       -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
-    /* Every section/container must not overflow */
-    section, div, header, footer, nav {
-      max-width: 100%;
+    img, svg { display: block; max-width: 100%; }
+    a { color: inherit; }
+    ul { list-style: none; }
+    button { font-family: inherit; cursor: pointer; }
+
+    /* ============================================
+       TOKENS
+    ============================================ */
+    :root {
+      --forest:      #1a3d2b;
+      --forest-dk:   #122a1e;
+      --teal:        #0d7a5f;
+      --teal-dk:     #0a6550;
+      --teal-bg:     #e8f5f0;
+      --amber:       #b45309;
+      --amber-bg:    #fef3c7;
+      --green-dot:   #16a34a;
+      --text:        #1a2e23;
+      --text-2:      #3d5247;
+      --text-3:      #6b7f74;
+      --bg:          #f5f7f5;
+      --surface:     #ffffff;
+      --border:      #d1ddd6;
+      --border-lt:   #e8f0eb;
+      --radius:      10px;
+      --radius-sm:   6px;
     }
 
-    .container {
+    /* ============================================
+       LAYOUT UTILITIES
+    ============================================ */
+    .wrap {
       width: 100%;
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 clamp(1rem, 4vw, 3rem);
+      max-width: 1080px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 20px;
+      padding-right: 20px;
     }
 
-    /* ── NAV ── */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-      background: rgba(255,255,255,0.93);
-      backdrop-filter: blur(16px);
+    /* ============================================
+       NAV
+    ============================================ */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: #ffffff;
       border-bottom: 1px solid var(--border);
-      transition: box-shadow 0.3s;
-      width: 100%;
     }
-    nav.scrolled { box-shadow: var(--shadow-md); }
-    .nav-inner {
-      max-width: 1100px; margin: 0 auto;
-      padding: 0 clamp(1rem, 4vw, 3rem);
-      height: 64px;
-      display: flex; align-items: center; justify-content: space-between;
+
+    .nav__inner {
+      max-width: 1080px;
+      margin: auto;
+      padding: 0 20px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
-    .nav-brand {
-      font-family: var(--font-display); font-weight: 700; font-size: 1.05rem;
-      color: var(--forest); text-decoration: none;
-      display: flex; align-items: center; gap: 0.5rem;
+
+    .nav__brand {
+      font-family: 'Sora', sans-serif;
+      font-weight: 800;
+      font-size: 1rem;
+      color: var(--forest);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav__dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--teal);
       flex-shrink: 0;
     }
-    .nav-brand-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--teal); flex-shrink: 0; }
-    .nav-links { display: flex; align-items: center; gap: 0.2rem; list-style: none; }
-    .nav-links a {
-      padding: 0.4rem 0.8rem; border-radius: var(--radius-sm);
-      color: var(--text-2); text-decoration: none;
-      font-size: 0.85rem; font-weight: 500; transition: all 0.2s;
+
+    .nav__links {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .nav__links a {
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-2);
+      text-decoration: none;
+    }
+
+    .nav__links a:hover {
+      color: var(--teal);
+      background: var(--teal-bg);
+    }
+
+    .nav__cta {
+      background: var(--forest) !important;
+      color: #fff !important;
+      margin-left: 4px;
+    }
+
+    .nav__cta:hover {
+      background: var(--forest-dk) !important;
+    }
+
+    /* Hamburger */
+    .nav__toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      padding: 6px;
+    }
+
+    .nav__toggle span {
+      display: block;
+      width: 22px; height: 2px;
+      background: var(--forest);
+      border-radius: 2px;
+    }
+
+    /* Mobile drawer */
+    .nav__drawer {
+      display: none;
+      position: fixed;
+      top: 60px; left: 0; right: 0;
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      padding: 8px 20px 16px;
+      z-index: 99;
+    }
+
+    .nav__drawer.is-open {
+      display: block;
+    }
+
+    .nav__drawer a {
+      display: block;
+      padding: 12px 0;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text-2);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border-lt);
+    }
+
+    .nav__drawer a:last-child {
+      border-bottom: none;
+    }
+
+    /* ============================================
+       HERO
+    ============================================ */
+    .hero {
+      padding: 100px 20px 64px;
+      background: #ffffff;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero__inner {
+      max-width: 1080px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .hero__content {
+      flex: 1;
+      min-width: 280px;
+    }
+
+    .hero__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: var(--teal-bg);
+      color: var(--teal);
+      border: 1px solid #b2ddd3;
+      padding: 5px 14px;
+      border-radius: 50px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .hero__badge::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--green-dot);
+    }
+
+    .hero__name {
+      font-family: 'Sora', sans-serif;
+      font-weight: 800;
+      font-size: 2.8rem;
+      line-height: 1.1;
+      color: var(--forest);
+      margin-bottom: 8px;
+    }
+
+    .hero__name em {
+      font-style: normal;
+      color: var(--teal);
+    }
+
+    .hero__role {
+      font-size: 1.05rem;
+      color: var(--text-2);
+      margin-bottom: 16px;
+      font-weight: 500;
+    }
+
+    .hero__desc {
+      font-size: 0.95rem;
+      color: var(--text-3);
+      max-width: 480px;
+      margin-bottom: 28px;
+      line-height: 1.8;
+    }
+
+    .hero__actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 10px 22px;
+      border-radius: var(--radius-sm);
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-decoration: none;
+      border: 2px solid transparent;
       white-space: nowrap;
     }
-    .nav-links a:hover { color: var(--teal); background: var(--teal-light); }
-    .nav-links .nav-cta { background: var(--forest); color: #fff !important; margin-left: 0.5rem; }
-    .nav-links .nav-cta:hover { background: var(--forest-light) !important; }
 
-    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 6px; flex-shrink: 0; }
-    .hamburger span { display: block; width: 22px; height: 2px; background: var(--forest); border-radius: 2px; transition: all 0.3s; }
+    .btn--primary {
+      background: var(--teal);
+      color: #fff;
+    }
 
-    .mobile-menu {
-      display: none; position: fixed; top: 64px; left: 0; right: 0; z-index: 199;
-      background: #fff; border-bottom: 1px solid var(--border);
-      padding: 1rem clamp(1rem, 4vw, 3rem); box-shadow: var(--shadow-md);
+    .btn--primary:hover {
+      background: var(--teal-dk);
+    }
+
+    .btn--outline {
+      background: transparent;
+      color: var(--forest);
+      border-color: var(--border);
+    }
+
+    .btn--outline:hover {
+      border-color: var(--teal);
+      color: var(--teal);
+    }
+
+    .hero__stats {
+      display: flex;
+      gap: 32px;
+      margin-top: 36px;
+      padding-top: 28px;
+      border-top: 1px solid var(--border);
+      flex-wrap: wrap;
+    }
+
+    .stat__val {
+      font-family: 'Sora', sans-serif;
+      font-weight: 800;
+      font-size: 1.8rem;
+      color: var(--forest);
+      line-height: 1;
+    }
+
+    .stat__lbl {
+      font-size: 0.76rem;
+      color: var(--text-3);
+      margin-top: 4px;
+      font-weight: 500;
+    }
+
+    /* Profile card */
+    .hero__card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      width: 200px;
+      flex-shrink: 0;
+    }
+
+    .card__avatar {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--teal), var(--forest));
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Sora', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+
+    .card__name {
+      font-family: 'Sora', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--forest);
+    }
+
+    .card__title {
+      font-size: 0.76rem;
+      color: var(--text-3);
+      margin-top: 2px;
+    }
+
+    .card__divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 14px 0;
+    }
+
+    .card__item {
+      font-size: 0.77rem;
+      color: var(--text-2);
+      margin-bottom: 6px;
+    }
+
+    .card__status {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 14px;
+      padding: 6px 10px;
+      background: #dcfce7;
+      border: 1px solid #86efac;
+      border-radius: 50px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: #15803d;
+    }
+
+    .card__status::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: #16a34a;
+    }
+
+    /* ============================================
+       ABOUT BAND
+    ============================================ */
+    .about {
+      background: var(--forest);
+      padding: 56px 20px;
+    }
+
+    .about__inner {
+      max-width: 1080px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .about__heading {
+      font-family: 'Sora', sans-serif;
+      font-weight: 800;
+      font-size: 1.4rem;
+      color: #fff;
+      margin-bottom: 14px;
+    }
+
+    .about__text {
+      font-size: 0.92rem;
+      color: #a8c8b6;
+      line-height: 1.9;
+    }
+
+    .about__text p + p {
+      margin-top: 12px;
+    }
+
+    .hl-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .hl {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+    }
+
+    .hl__icon {
+      font-size: 1rem;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+
+    .hl__title {
+      font-weight: 600;
+      font-size: 0.88rem;
+      color: #fff;
+      margin-bottom: 3px;
+    }
+
+    .hl__text {
+      font-size: 0.81rem;
+      color: #a8c8b6;
+    }
+
+    /* ============================================
+       SECTION SHARED
+    ============================================ */
+    .section {
+      padding: 64px 20px;
+    }
+
+    .section--alt {
+      background: var(--bg);
+    }
+
+    .section--white {
+      background: var(--surface);
+    }
+
+    .section__wrap {
+      max-width: 1080px;
+      margin: auto;
+    }
+
+    .section__label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 8px;
+    }
+
+    .section__label::before {
+      content: '';
+      width: 18px; height: 2px;
+      background: var(--teal);
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    .section__title {
+      font-family: 'Sora', sans-serif;
+      font-weight: 800;
+      font-size: 1.75rem;
+      color: var(--forest);
+      margin-bottom: 32px;
+      line-height: 1.2;
+    }
+
+    .section__title em {
+      font-style: normal;
+      color: var(--teal);
+    }
+
+    /* ============================================
+       EXPERIENCE — TAB LAYOUT
+    ============================================ */
+    .exp {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 32px;
+      align-items: start;
+    }
+
+    /* Tab list */
+    .exp__tabs {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      position: sticky;
+      top: 76px;
+    }
+
+    .tab-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: var(--radius-sm);
+      border: none;
+      background: transparent;
+      text-align: left;
       width: 100%;
+      color: var(--text-2);
+      font-size: 0.84rem;
     }
-    .mobile-menu.open { display: block; }
-    .mobile-menu a {
-      display: block; padding: 0.85rem 0; border-bottom: 1px solid var(--border-light);
-      color: var(--text-2); text-decoration: none; font-weight: 500; font-size: 0.95rem;
-    }
-    .mobile-menu a:last-child { border-bottom: none; }
 
-    /* ── HERO ── */
-    .hero {
-      min-height: 100vh;
-      width: 100%;
-      padding: 9rem clamp(1rem, 4vw, 3rem) 5rem;
-      display: flex; align-items: center;
-      background: linear-gradient(150deg, #FFFFFF 0%, #EBF5EF 55%, var(--bg) 100%);
-      position: relative; overflow: hidden;
+    .tab-btn:hover {
+      background: var(--bg);
     }
-    .hero::before {
-< truncated lines 171-735 >
-        </div>
-      </div>
-      <div class="skill-card reveal">
-        <div class="skill-card-header"><div class="skill-icon">🛠️</div><div class="skill-card-title">Tools &amp; Platforms</div></div>
-        <div class="skill-tags">
-          <span class="skill-tag">Business Application Studio</span><span class="skill-tag">SAP Web IDE</span>
-          <span class="skill-tag">GitHub</span><span class="skill-tag">Azure Pipelines</span>
-          <span class="skill-tag">JIRA</span><span class="skill-tag">ABAP Dev Tools (Eclipse)</span>
-          <span class="skill-tag">SAP HANA Studio</span><span class="skill-tag">SAP GUI</span>
-          <span class="skill-tag">VS Code</span><span class="skill-tag">CBC</span>
-        </div>
-      </div>
-      <div class="skill-card reveal">
-        <div class="skill-card-header"><div class="skill-icon">⚙️</div><div class="skill-card-title">Methodologies</div></div>
-        <div class="skill-tags">
-          <span class="skill-tag">Scrum / Agile</span><span class="skill-tag">CILTS Processes</span>
-          <span class="skill-tag">Test Automation</span><span class="skill-tag">OPA5 / QUnit / XSUnit</span>
-          <span class="skill-tag">UX Design</span><span class="skill-tag">Knowledge Transfer</span>
-        </div>
-      </div>
-    </div>
+
+    .tab-btn.is-active {
+      background: var(--teal-bg);
+      color: var(--teal);
+    }
+
+    .tab-logo {
+      width: 32px; height: 32px;
+      border-radius: 6px;
+      background: var(--border-lt);
+      border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.62rem;
+      font-weight: 700;
+      color: var(--text-3);
+      flex-shrink: 0;
+    }
+
+    .tab-btn.is-active .tab-logo {
+      background: rgba(13,122,95,0.12);
+      color: var(--teal);
+      border-color: rgba(13,122,95,0.25);
+    }
+
+    .tab-name { font-weight: 600; line-height: 1.2; }
+    .tab-period { font-size: 0.72rem; color: var(--text-3); margin-top: 1px; }
+
+    /* Panels */
+    .exp__panels { min-width: 0; }
+
+    .exp-panel {
+      display: none;
+    }
+
+    .exp-panel.is-active {
+      display: block;
+    }
+
+    .panel-header {
+      padding-bottom: 18px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .panel-title {
+      font-family: 'Sora', sans-serif;
+      font-weight: 800;
+      font-size: 1.25rem;
+      color: var(--forest);
+    }
+
+    .panel-company {
+      font-size: 0.87rem;
+      font-weight: 600;
+      color: var(--teal);
+      margin-top: 3px;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 5px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 50px;
+      font-size: 0.72rem;
+      font-weight: 600;
+    }
+
+    .badge--grey {
+      background: var(--border-lt);
+      color: var(--text-3);
+    }
+
+    .badge--teal {
+      background: var(--teal-bg);
+      color: var(--teal);
+    }
+
+    .role-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .role-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 18px;
+    }
+
+    .role-card__title {
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--forest);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .role-card__sub {
+      font-weight: 400;
+      font-size: 0.8rem;
+      color: var(--text-3);
+    }
+
+    .role-card ul {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .role-card li {
+      font-size: 0.86rem;
+      color: var(--text-2);
+      padding-left: 14px;
+      position: relative;
+      line-height: 1.65;
+    }
+
+    .role-card li::before {
+      content: '›';
+      position: absolute;
+      left: 0;
+      color: var(--teal);
+      font-weight: 700;
+    }
+
+    /* ============================================
+       SKILLS
+    ============================================ */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .skill-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+    }
+
+    .skill-card:hover {
+      border-color: #b2ddd3;
+    }
+
+    .skill-card__head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .skill-icon {
+      width: 36px; height: 36px;
+      border-radius: 8px;
+      background: var(--teal-bg);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.95rem;
+      flex-shrink: 0;
+    }
+
+    .skill-card__title {
+      font-weight: 700;
+      font-size: 0.87rem;
+      color: var(--forest);
+    }
+
+    .tag-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 50px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      background: var(--bg);
+      color: var(--text-2);
+      border: 1px solid var(--border);
+    }
+
+    .tag:hover {
+      background: var(--teal-bg);
+      color: var(--teal);
+      border-color: #b2ddd3;
+    }
+
+    /* ============================================
+       EDUCATION
+    ============================================ */
+    .edu-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+
+    .edu-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px;
+      border-top: 3px solid var(--teal);
+    }
+
+    .edu-card__icon { font-size: 1.5rem; margin-bottom: 10px; }
+
+    .edu-card__degree {
+      font-family: 'Sora', sans-serif;
+      font-weight: 700;
+      font-size: 0.97rem;
+      color: var(--forest);
+      line-height: 1.35;
+      margin-bottom: 5px;
+    }
+
+    .edu-card__school {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--teal);
+      margin-bottom: 3px;
+    }
+
+    .edu-card__meta {
+      font-size: 0.79rem;
+      color: var(--text-3);
+    }
+
+    .edu-card__grade {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 3px 10px;
+      border-radius: 50px;
+      font-size: 0.76rem;
+      font-weight: 600;
+      background: var(--amber-bg);
+      color: var(--amber);
+      border: 1px solid #fcd34d;
+    }
+
+    /* Languages + Certs side by side */
+    .extras {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+
+    .extras__title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .extras__title::before {
+      content: '';
+      width: 16px; height: 2px;
+      background: var(--teal);
+      border-radius: 2px;
+    }
+
+    .lang-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border-lt);
+    }
+
+    .lang-row:last-child { border-bottom: none; }
+
+    .lang-name {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .lang-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .dots {
+      display: flex;
+      gap: 4px;
+    }
+
+    .dot {
+      width: 9px; height: 9px;
+      border-radius: 50%;
+      background: var(--border);
+    }
+
+    .dot.on { background: var(--teal); }
+
+    .lang-level {
+      font-size: 0.75rem;
+      color: var(--text-3);
+      min-width: 78px;
+      text-align: right;
+    }
+
+    .cert-card {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px 18px;
+    }
+
+    .cert-icon {
+      width: 40px; height: 40px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--teal), var(--forest));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .cert-title {
+      font-weight: 600;
+      font-size: 0.88rem;
+      color: var(--forest);
+    }
+
+    .cert-issuer {
+      font-size: 0.77rem;
+      color: var(--text-3);
+      margin-top: 2px;
+    }
+
+    /* ============================================
+       CONTACT
+    ============================================ */
+    .contact {
+      background: var(--forest);
+      padding: 64px 20px;
+      text-align: center;
+    }
+
+    .contact__inner {
+      max-width: 620px;
+      margin: auto;
+    }
+
+    .contact__label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #5aad85;
+      margin-bottom: 10px;
+    }
+
+    .contact__label::before {
+      content: '';
+      width: 16px; height: 2px;
+      background: #5aad85;
+      border-radius: 2px;
+    }
+
+    .contact__title {
+      font-family: 'Sora', sans-serif;
+      font-weight: 800;
+      font-size: 1.75rem;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+
+    .contact__title em {
+      font-style: normal;
+      color: #5cd6a3;
+    }
+
+    .contact__sub {
+      font-size: 0.92rem;
+      color: #89b09c;
+      line-height: 1.8;
+      margin-bottom: 36px;
+    }
+
+    .contact__cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .contact-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius);
+      padding: 22px 16px;
+      text-decoration: none;
+    }
+
+    .contact-card:hover {
+      background: rgba(255,255,255,0.12);
+      border-color: rgba(255,255,255,0.25);
+    }
+
+    .contact-card__icon {
+      width: 46px; height: 46px;
+      border-radius: 10px;
+      background: rgba(13,122,95,0.4);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.15rem;
+    }
+
+    .contact-card__label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #5aad85;
+    }
+
+    .contact-card__value {
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: #fff;
+      word-break: break-all;
+      text-align: center;
+    }
+
+    /* ============================================
+       FOOTER
+    ============================================ */
+    .footer {
+      background: #0e2218;
+      padding: 20px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .footer__inner {
+      max-width: 1080px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .footer__text {
+      font-size: 0.8rem;
+      color: #3d6b50;
+    }
+
+    /* ============================================
+       RESPONSIVE — TABLET (max 900px)
+    ============================================ */
+    @media (max-width: 900px) {
+      /* Hide desktop nav links, show hamburger */
+      .nav__links { display: none; }
+      .nav__toggle { display: flex; }
+
+      /* Hero: stack vertically */
+      .hero__inner { flex-direction: column; }
+      .hero__card { display: none; }
+      .hero__name { font-size: 2.2rem; }
+
+      /* About: single column */
+      .about__inner { grid-template-columns: 1fr; gap: 28px; }
+
+      /* Experience: stack */
+      .exp {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .exp__tabs {
+        position: static;
+        flex-direction: row;
+        overflow-x: auto;
+        gap: 6px;
+        padding-bottom: 4px;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .tab-btn {
+        flex-shrink: 0;
+        min-width: 140px;
+      }
+
+      /* Skills: single column on tablet */
+      .skills-grid { grid-template-columns: 1fr; }
+
+      /* Education: single column */
+      .edu-grid { grid-template-columns: 1fr; }
+
+      /* Extras: single column */
+      .extras { grid-template-columns: 1fr; gap: 28px; }
+
+      /* Contact */
+      .contact__cards { grid-template-columns: 1fr; }
+    }
+
+    /* ============================================
+       RESPONSIVE — MOBILE (max 600px)
+    ============================================ */
+    @media (max-width: 600px) {
+      .hero { padding: 88px 16px 48px; }
+      .hero__name { font-size: 1.9rem; }
+      .hero__stats { gap: 20px; }
+      .hero__actions { flex-direction: column; }
+      .btn { width: 100%; justify-content: center; }
+
+      .about { padding: 40px 16px; }
+      .section { padding: 48px 16px; }
+      .contact { padding: 48px 16px; }
+
+      .panel-header { flex-direction: column; }
+      .badge-row { align-items: flex-start; flex-direction: row; flex-wrap: wrap; }
+
+      .section__title { font-size: 1.45rem; }
+      .contact__title { font-size: 1.45rem; }
+    }
+
+    /* Minimal transitions — interactive elements only */
+    .nav__links a,
+    .btn,
+    .tab-btn,
+    .tag,
+    .skill-card,
+    .contact-card,
+    .cert-card {
+      transition: background-color 0.15s, border-color 0.15s, color 0.15s;
+    }
+
+    /* ============================================
+       PRINT — clean single column
+    ============================================ */
+    @media print {
+      .nav, .nav__drawer { display: none; }
+      .hero { padding: 20px 0; }
+      .about { background: #fff; color: #000; }
+      .contact { background: #fff; color: #000; }
+      * { box-shadow: none !important; }
+    }
+  </style>
+
+</head>
+<body>
+
+<!-- ══════════════════════════════════
+     NAV
+══════════════════════════════════ -->
+
+<nav class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="#home" class="nav__brand">
+      <span class="nav__dot"></span>Lokesh Jadhav
+    </a>
+    <ul class="nav__links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact" class="nav__cta">Contact</a></li>
+    </ul>
+    <button class="nav__toggle" onclick="toggleNav()" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
-</section>
+</nav>
 
-<!-- ── EDUCATION ── -->
-<section id="education">
-  <div class="container">
-    <div class="section-header reveal">
-      <div class="section-tag">Academic</div>
-      <h2>Education &amp; <span>Credentials</span></h2>
-    </div>
-    <div class="edu-grid">
-      <div class="edu-card reveal">
-        <div class="edu-icon">🎓</div>
-        <div class="edu-degree">M.Eng. in Software Engineering for Industrial Applications</div>
-        <div class="edu-school">Hof University of Applied Sciences</div>
-        <div class="edu-meta">Mar 2016 – Aug 2018 · Hof, Bavaria, Germany</div>
-        <div class="edu-grade">Grade: 1.4 — Very Good</div>
-      </div>
-      <div class="edu-card reveal">
-        <div class="edu-icon">🎓</div>
-        <div class="edu-degree">Bachelor of Engineering (Computer Engineering)</div>
-        <div class="edu-school">University of Mumbai</div>
-        <div class="edu-meta">Sep 2009 – May 2013 · Mumbai, India</div>
-        <div class="edu-grade">Grade: 2.6 — First Class</div>
-      </div>
-    </div>
-    <div class="extra-grid reveal">
-      <div>
-        <div class="extra-section-title">Languages</div>
-        <div class="lang-row">
-          <span class="lang-name">Marathi</span>
-          <div class="lang-bar-wrap">
-            <div class="lang-bar"><div class="lang-dot filled"></div><div class="lang-dot filled"></div><div class="lang-dot filled"></div><div class="lang-dot filled"></div><div class="lang-dot filled"></div></div>
-            <span class="lang-lvl">Native</span>
-          </div>
-        </div>
-        <div class="lang-row">
-          <span class="lang-name">Hindi</span>
-          <div class="lang-bar-wrap">
-            <div class="lang-bar"><div class="lang-dot filled"></div><div class="lang-dot filled"></div><div class="lang-dot filled"></div><div class="lang-dot filled"></div><div class="lang-dot filled"></div></div>
-            <span class="lang-lvl">Proficient</span>
-          </div>
-        </div>
-        <div class="lang-row">
-          <span class="lang-name">English</span>
-          <div class="lang-bar-wrap">
-            <div class="lang-bar"><div class="lang-dot filled"></div><div class="lang-dot filled"></div><div class="lang-dot filled"></div><div class="lang-dot filled"></div><div class="lang-dot filled"></div></div>
-            <span class="lang-lvl">Proficient</span>
-          </div>
-        </div>
-        <div class="lang-row">
-          <span class="lang-name">German</span>
-          <div class="lang-bar-wrap">
-            <div class="lang-bar"><div class="lang-dot filled"></div><div class="lang-dot filled"></div><div class="lang-dot filled"></div><div class="lang-dot"></div><div class="lang-dot"></div></div>
-            <span class="lang-lvl">Intermediate B1</span>
-          </div>
-        </div>
-      </div>
-      <div>
-        <div class="extra-section-title">Certifications</div>
-        <div class="cert-card">
-          <div class="cert-icon">📜</div>
-          <div>
-            <div class="cert-title">Goethe-Zertifikat B1</div>
-            <div class="cert-issuer">Goethe-Institut, Mannheim, Germany</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+<div class="nav__drawer" id="drawer">
+  <a href="#about"      onclick="toggleNav()">About</a>
+  <a href="#experience" onclick="toggleNav()">Experience</a>
+  <a href="#skills"     onclick="toggleNav()">Skills</a>
+  <a href="#education"  onclick="toggleNav()">Education</a>
+  <a href="#contact"    onclick="toggleNav()">Contact</a>
+</div>
 
-<!-- ── CONTACT ── -->
-<section id="contact">
-  <div class="container">
-    <div class="contact-inner">
-      <div class="section-tag" style="justify-content:center; color:#5a9e7e; margin-bottom:0.75rem;">Contact</div>
-      <h2>Let's <span>Connect</span></h2>
-      <p class="contact-sub">Open to new opportunities in SAP development, enterprise software, or senior engineering roles. Feel free to reach out — I'd love to have a conversation.</p>
-      <div class="contact-cards">
-        <a href="mailto:lokesh.jadhav10&#64;gmail.com" class="contact-card">
-          <div class="contact-card-icon">✉️</div>
-          <div class="contact-card-label">Email</div>
-          <div class="contact-card-value">lokesh.jadhav10&#64;gmail.com</div>
+<!-- ══════════════════════════════════
+     HERO
+══════════════════════════════════ -->
+
+<section class="hero" id="home">
+  <div class="hero__inner">
+    <div class="hero__content">
+      <div class="hero__badge">Available for New Opportunities</div>
+      <h1 class="hero__name">Lokesh<br><em>Jadhav</em></h1>
+      <p class="hero__role">Senior Software Developer · SAP SE</p>
+      <p class="hero__desc">7+ years building enterprise-grade Public Sector Management applications with SAP Fiori, ABAP, and cloud-native tools. Based in Walldorf, Germany.</p>
+      <div class="hero__actions">
+        <a href="#contact" class="btn btn--primary">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Get In Touch
         </a>
-        <a href="https://github.com/loki-one" target="_blank" rel="noopener" class="contact-card">
-          <div class="contact-card-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-          </div>
-          <div class="contact-card-label">GitHub</div>
-          <div class="contact-card-value">github.com/loki-one</div>
+        <a href="https://github.com/loki-one" target="_blank" rel="noopener noreferrer" class="btn btn--outline">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          GitHub
         </a>
+      </div>
+      <div class="hero__stats">
+        <div><div class="stat__val">7+</div><div class="stat__lbl">Years at SAP</div></div>
+        <div><div class="stat__val">4</div><div class="stat__lbl">Promotions</div></div>
+        <div><div class="stat__val">1.4</div><div class="stat__lbl">M.Eng. Grade</div></div>
+        <div><div class="stat__val">10+</div><div class="stat__lbl">Technologies</div></div>
+      </div>
+    </div>
+    <div class="hero__card">
+      <div class="card__avatar">LJ</div>
+      <div class="card__name">Lokesh Jadhav</div>
+      <div class="card__title">Senior Developer · SAP</div>
+      <hr class="card__divider" />
+      <div class="card__item">📍 Altlussheim, Germany</div>
+      <div class="card__item">🏢 SAP SE, Walldorf</div>
+      <div class="card__status">Open to Opportunities</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     ABOUT
+══════════════════════════════════ -->
+
+<div class="about" id="about">
+  <div class="about__inner">
+    <div>
+      <h2 class="about__heading">About Me</h2>
+      <div class="about__text">
+        <p>I'm a Senior Software Developer at SAP with over 7 years of hands-on experience building enterprise applications for the Public Sector Management (PSM) domain. I specialise in SAP Fiori, ABAP, Core Data Services, and cloud tooling including Business Application Studio and Azure Pipelines.</p>
+        <p>Beyond coding, I serve as a technical coordinator — bridging development, content, and product teams, leading knowledge transfer, and driving UX improvement rollouts across the organisation.</p>
+      </div>
+    </div>
+    <div class="hl-list">
+      <div class="hl">
+        <div class="hl__icon">🎯</div>
+        <div>
+          <div class="hl__title">PSM Domain Expert</div>
+          <div class="hl__text">Deep expertise in SSCUI Configuration and SAP Public Sector Management</div>
+        </div>
+      </div>
+      <div class="hl">
+        <div class="hl__icon">🤝</div>
+        <div>
+          <div class="hl__title">Cross-functional Leader</div>
+          <div class="hl__text">Central PoC bridging development, content, and product stakeholders</div>
+        </div>
+      </div>
+      <div class="hl">
+        <div class="hl__icon">🌍</div>
+        <div>
+          <div class="hl__title">Multilingual</div>
+          <div class="hl__text">English · German B1 · Hindi · Marathi (native)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     EXPERIENCE
+══════════════════════════════════ -->
+
+<section class="section section--white" id="experience">
+  <div class="section__wrap">
+    <div class="section__label">Career</div>
+    <h2 class="section__title">Professional <em>Experience</em></h2>
+
+```
+<div class="exp">
+  <!-- Tab buttons -->
+  <div class="exp__tabs" role="tablist">
+    <button class="tab-btn is-active" onclick="showTab(this,'t-sap-sr')" role="tab">
+      <div class="tab-logo">SAP</div>
+      <div><div class="tab-name">SAP — Senior</div><div class="tab-period">2024 – Present</div></div>
+    </button>
+    <button class="tab-btn" onclick="showTab(this,'t-sap-dev')" role="tab">
+      <div class="tab-logo">SAP</div>
+      <div><div class="tab-name">SAP — Developer</div><div class="tab-period">2020 – 2023</div></div>
+    </button>
+    <button class="tab-btn" onclick="showTab(this,'t-sap-assoc')" role="tab">
+      <div class="tab-logo">SAP</div>
+      <div><div class="tab-name">SAP — Associate</div><div class="tab-period">2017 – 2019</div></div>
+    </button>
+    <button class="tab-btn" onclick="showTab(this,'t-infosys')" role="tab">
+      <div class="tab-logo">INF</div>
+      <div><div class="tab-name">Infosys</div><div class="tab-period">2014 – 2015</div></div>
+    </button>
+  </div>
+
+  <!-- Panels -->
+  <div class="exp__panels">
+
+    <div class="exp-panel is-active" id="t-sap-sr">
+      <div class="panel-header">
+        <div>
+          <div class="panel-title">Senior Developer</div>
+          <div class="panel-company">SAP SE</div>
+        </div>
+        <div class="badge-row">
+          <span class="badge badge--grey">Jan 2024 – Present</span>
+          <span class="badge badge--teal">📍 Walldorf, Germany</span>
+        </div>
+      </div>
+      <div class="role-list">
+        <div class="role-card">
+          <div class="role-card__title">SSCUI Configuration — Central PoC</div>
+          <ul>
+            <li>Expanded SSCUI Configuration responsibilities as the go-to expert for the entire PSM Team.</li>
+            <li>Conducted feasibility checks, assessed SSCUI file scenarios, and maintained metadata in configuration tables.</li>
+          </ul>
+        </div>
+        <div class="role-card">
+          <div class="role-card__title">Fiori Release Coordinator</div>
+          <ul>
+            <li>Aligned updates from Fiori Infrastructure meetings; facilitated knowledge transfer on GitHub, Azure Pipelines, and CILTS Fiori development.</li>
+            <li>Resolved GitHub tasks and troubleshot Azure pipeline issues ensuring seamless workflow.</li>
+          </ul>
+        </div>
+        <div class="role-card">
+          <div class="role-card__title">UX Improvement Lead &amp; CBC Configuration Specialist</div>
+          <ul>
+            <li>Implemented UX Improvement initiatives for master data applications; facilitated migration to Business Application Studio.</li>
+            <li>Managed setup, deployment, and upgrades of PSM CBC Workspaces across new countries and scope items.</li>
+            <li>Led PSM Back Sync and Parallel Project Line (PPL) testing as Central PoC on CBC.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-panel" id="t-sap-dev">
+      <div class="panel-header">
+        <div>
+          <div class="panel-title">Developer</div>
+          <div class="panel-company">SAP SE</div>
+        </div>
+        <div class="badge-row">
+          <span class="badge badge--grey">Jan 2020 – Dec 2023</span>
+          <span class="badge badge--teal">📍 Walldorf, Germany</span>
+        </div>
+      </div>
+      <div class="role-list">
+        <div class="role-card">
+          <div class="role-card__title">Master Data Application Development</div>
+          <ul>
+            <li>Implemented new features and automated unit tests for master data applications using a scrum takt-based approach.</li>
+            <li>Collaboratively refined backlogs and subtasks with the Project Manager and Product Owner.</li>
+          </ul>
+        </div>
+        <div class="role-card">
+          <div class="role-card__title">SSCUI Configuration PoC</div>
+          <ul>
+            <li>Served as Central PoC; assessed SSCUI file scenarios and maintained metadata in configuration tables.</li>
+            <li>Analysed and resolved PSM SSCUI issues; maintained a tracker for full stakeholder visibility.</li>
+            <li>Facilitated knowledge transfer and skill development on SSCUI topics across the team.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-panel" id="t-sap-assoc">
+      <div class="panel-header">
+        <div>
+          <div class="panel-title">Associate / Intern / Working Student</div>
+          <div class="panel-company">SAP SE</div>
+        </div>
+        <div class="badge-row">
+          <span class="badge badge--grey">Mar 2017 – Dec 2019</span>
+          <span class="badge badge--teal">📍 Walldorf, Germany</span>
+        </div>
+      </div>
+      <div class="role-list">
+        <div class="role-card">
+          <div class="role-card__title">Associate Developer <span class="role-card__sub">· Sep 2018 – Dec 2019</span></div>
+          <ul>
+            <li>Developed PSM master data applications using SAP Fiori Elements, OData V2, ABAP, CDS, and BOPF Framework.</li>
+            <li>Implemented test automation using ABAP Unit Tests and Start Scripts.</li>
+          </ul>
+        </div>
+        <div class="role-card">
+          <div class="role-card__title">Intern — UI5 Test Infrastructure <span class="role-card__sub">· Sep 2017 – Feb 2018</span></div>
+          <ul>
+            <li>Established test infrastructure using OPA5, QUnit, and XSUnit for a Graph Viewer Application.</li>
+            <li>Developed a prototype visualising GraphScript Procedures with UI5 Network Graph and SAP HANA XS.</li>
+          </ul>
+        </div>
+        <div class="role-card">
+          <div class="role-card__title">Intern &amp; Working Student <span class="role-card__sub">· Mar–Aug 2017 / 2018</span></div>
+          <ul>
+            <li>Built a prototype Questionnaire web app using SAPUI5 and SAP HANA Extended Application Services.</li>
+            <li>Re-engineered an internal web application using JavaScript, jQuery, Vue.js, HTML5, and CSS3.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-panel" id="t-infosys">
+      <div class="panel-header">
+        <div>
+          <div class="panel-title">Systems Engineer</div>
+          <div class="panel-company">Infosys Limited</div>
+        </div>
+        <div class="badge-row">
+          <span class="badge badge--grey">Feb 2014 – Sep 2015</span>
+          <span class="badge badge--teal">📍 Pune, India</span>
+        </div>
+      </div>
+      <div class="role-list">
+        <div class="role-card">
+          <div class="role-card__title">Finacle Banking Solution</div>
+          <ul>
+            <li>Customised, modified, and tested the Infosys "Finacle" banking solution for a multinational financial services corporation.</li>
+            <li>Worked with client teams to deliver tailored configurations meeting regulatory and operational requirements.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /exp__panels -->
+</div><!-- /exp -->
+```
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     SKILLS
+══════════════════════════════════ -->
+
+<section class="section section--alt" id="skills">
+  <div class="section__wrap">
+    <div class="section__label">Expertise</div>
+    <h2 class="section__title">Skills &amp; <em>Technologies</em></h2>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-card__head">
+          <div class="skill-icon">💻</div>
+          <div class="skill-card__title">Languages &amp; Frameworks</div>
+        </div>
+        <div class="tag-wrap">
+          <span class="tag">ABAP</span><span class="tag">Fiori Elements</span><span class="tag">ABAP Unit</span>
+          <span class="tag">CDS</span><span class="tag">BOPF</span><span class="tag">SAPUI5</span>
+          <span class="tag">RAP</span><span class="tag">OData V2</span><span class="tag">HTML5</span>
+          <span class="tag">CSS3</span><span class="tag">JavaScript</span><span class="tag">Vue.js</span>
+          <span class="tag">Node.js</span><span class="tag">SQL</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card__head">
+          <div class="skill-icon">🗄️</div>
+          <div class="skill-card__title">Databases</div>
+        </div>
+        <div class="tag-wrap">
+          <span class="tag">SAP HANA</span><span class="tag">HANA XS Services</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card__head">
+          <div class="skill-icon">🛠️</div>
+          <div class="skill-card__title">Tools &amp; Platforms</div>
+        </div>
+        <div class="tag-wrap">
+          <span class="tag">Business Application Studio</span><span class="tag">SAP Web IDE</span>
+          <span class="tag">GitHub</span><span class="tag">Azure Pipelines</span>
+          <span class="tag">JIRA</span><span class="tag">ABAP Dev Tools (Eclipse)</span>
+          <span class="tag">SAP HANA Studio</span><span class="tag">SAP GUI</span>
+          <span class="tag">VS Code</span><span class="tag">CBC</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card__head">
+          <div class="skill-icon">⚙️</div>
+          <div class="skill-card__title">Methodologies</div>
+        </div>
+        <div class="tag-wrap">
+          <span class="tag">Scrum / Agile</span><span class="tag">CILTS Processes</span>
+          <span class="tag">Test Automation</span><span class="tag">OPA5 / QUnit / XSUnit</span>
+          <span class="tag">UX Design</span><span class="tag">Knowledge Transfer</span>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── FOOTER ── -->
-<footer>
-  <div class="footer-inner">
-    <span class="footer-text">© 2026 Lokesh Jadhav · Altlussheim, Germany</span>
-    <span class="footer-text">Senior SAP Developer · Open to Opportunities</span>
+<!-- ══════════════════════════════════
+     EDUCATION
+══════════════════════════════════ -->
+
+<section class="section section--white" id="education">
+  <div class="section__wrap">
+    <div class="section__label">Academic</div>
+    <h2 class="section__title">Education &amp; <em>Credentials</em></h2>
+
+```
+<div class="edu-grid">
+  <div class="edu-card">
+    <div class="edu-card__icon">🎓</div>
+    <div class="edu-card__degree">M.Eng. in Software Engineering for Industrial Applications</div>
+    <div class="edu-card__school">Hof University of Applied Sciences</div>
+    <div class="edu-card__meta">Mar 2016 – Aug 2018 · Hof, Bavaria, Germany</div>
+    <div class="edu-card__grade">Grade: 1.4 — Very Good</div>
+  </div>
+  <div class="edu-card">
+    <div class="edu-card__icon">🎓</div>
+    <div class="edu-card__degree">Bachelor of Engineering (Computer Engineering)</div>
+    <div class="edu-card__school">University of Mumbai</div>
+    <div class="edu-card__meta">Sep 2009 – May 2013 · Mumbai, India</div>
+    <div class="edu-card__grade">Grade: 2.6 — First Class</div>
+  </div>
+</div>
+
+<div class="extras">
+  <div>
+    <div class="extras__title">Languages</div>
+    <div class="lang-row">
+      <span class="lang-name">Marathi</span>
+      <div class="lang-right">
+        <div class="dots"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div></div>
+        <span class="lang-level">Native</span>
+      </div>
+    </div>
+    <div class="lang-row">
+      <span class="lang-name">Hindi</span>
+      <div class="lang-right">
+        <div class="dots"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div></div>
+        <span class="lang-level">Proficient</span>
+      </div>
+    </div>
+    <div class="lang-row">
+      <span class="lang-name">English</span>
+      <div class="lang-right">
+        <div class="dots"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div></div>
+        <span class="lang-level">Proficient</span>
+      </div>
+    </div>
+    <div class="lang-row">
+      <span class="lang-name">German</span>
+      <div class="lang-right">
+        <div class="dots"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot"></div><div class="dot"></div></div>
+        <span class="lang-level">Intermediate B1</span>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div class="extras__title">Certifications</div>
+    <div class="cert-card">
+      <div class="cert-icon">📜</div>
+      <div>
+        <div class="cert-title">Goethe-Zertifikat B1</div>
+        <div class="cert-issuer">Goethe-Institut, Mannheim, Germany</div>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     CONTACT
+══════════════════════════════════ -->
+
+<section class="contact" id="contact">
+  <div class="contact__inner">
+    <div class="contact__label">Contact</div>
+    <h2 class="contact__title">Let's <em>Connect</em></h2>
+    <p class="contact__sub">Open to new opportunities in SAP development, enterprise software, or senior engineering roles. Feel free to reach out.</p>
+    <div class="contact__cards">
+      <a href="mailto:lokesh.jadhav10&#64;gmail.com" class="contact-card">
+        <div class="contact-card__icon">✉️</div>
+        <div class="contact-card__label">Email</div>
+        <div class="contact-card__value">lokesh.jadhav10&#64;gmail.com</div>
+      </a>
+      <a href="https://github.com/loki-one" target="_blank" rel="noopener noreferrer" class="contact-card">
+        <div class="contact-card__icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+        </div>
+        <div class="contact-card__label">GitHub</div>
+        <div class="contact-card__value">github.com/loki-one</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     FOOTER
+══════════════════════════════════ -->
+
+<footer class="footer">
+  <div class="footer__inner">
+    <span class="footer__text">© 2026 Lokesh Jadhav · Altlussheim, Germany</span>
+    <span class="footer__text">Senior SAP Developer · Open to Opportunities</span>
   </div>
 </footer>
 
-<script>
-  // Nav shadow
-  window.addEventListener('scroll', function() {
-    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
-  });
+<!-- ══════════════════════════════════
+     JAVASCRIPT — minimal, no libraries
+══════════════════════════════════ -->
 
-  // Mobile menu
-  function toggleMenu() {
-    document.getElementById('mobileMenu').classList.toggle('open');
+<script>
+  'use strict';
+
+  /* Mobile nav toggle */
+  function toggleNav() {
+    var d = document.getElementById('drawer');
+    d.classList.toggle('is-open');
   }
 
-  // Close mobile menu on outside click
+  /* Close drawer when clicking outside */
   document.addEventListener('click', function(e) {
-    var menu = document.getElementById('mobileMenu');
-    var hamburger = document.querySelector('.hamburger');
-    if (menu.classList.contains('open') && !menu.contains(e.target) && !hamburger.contains(e.target)) {
-      menu.classList.remove('open');
+    var d = document.getElementById('drawer');
+    var btn = document.querySelector('.nav__toggle');
+    if (d.classList.contains('is-open') && !d.contains(e.target) && !btn.contains(e.target)) {
+      d.classList.remove('is-open');
     }
   });
 
-  // Experience tabs
-  function showPanel(btn, id) {
-    document.querySelectorAll('.exp-panel').forEach(function(p) { p.classList.remove('active'); });
-    document.querySelectorAll('.exp-company-btn').forEach(function(b) { b.classList.remove('active'); });
-    document.getElementById(id).classList.add('active');
-    btn.classList.add('active');
+  /* Experience tab switcher */
+  function showTab(btn, panelId) {
+    /* deactivate all */
+    var btns = document.querySelectorAll('.tab-btn');
+    var panels = document.querySelectorAll('.exp-panel');
+    for (var i = 0; i < btns.length; i++) { btns[i].classList.remove('is-active'); }
+    for (var j = 0; j < panels.length; j++) { panels[j].classList.remove('is-active'); }
+    /* activate chosen */
+    btn.classList.add('is-active');
+    document.getElementById(panelId).classList.add('is-active');
   }
-
-  // Scroll reveal
-  var revealObserver = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry, i) {
-      if (entry.isIntersecting) {
-        setTimeout(function() { entry.target.classList.add('visible'); }, i * 80);
-      }
-    });
-  }, { threshold: 0.08 });
-
-  document.querySelectorAll('.reveal').forEach(function(el) {
-    revealObserver.observe(el);
-  });
 </script>
+
 </body>
 </html>

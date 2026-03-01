@@ -17,6 +17,7 @@
   <meta property="og:title"       content="Lokesh Jadhav — Senior SAP Developer" />
   <meta property="og:description" content="7+ years at SAP SE · ABAP · Fiori Elements · PSM · Based in Germany · Open to opportunities." />
   <meta property="og:url"         content="https://loki-one.github.io/personal-website/" />
+  <!-- FIX #10: og:image — create a 1200x630px screenshot of the site and save as og-image.png in your repo root -->
   <meta property="og:image"       content="https://loki-one.github.io/personal-website/og-image.png" />
   <meta name="twitter:card"       content="summary_large_image" />
   <meta name="twitter:title"      content="Lokesh Jadhav — Senior SAP Developer" />
@@ -58,16 +59,14 @@
     /* ── TOKENS ── */
     :root {
       --forest:   #1a3d2b;
-      --forest-dk:#122a1e;
       --teal:     #0d7a5f;
-      --teal-dk:  #0a6550;
       --teal-bg:  #e6f4ef;
       --teal-bd:  #b2d9cc;
       --li:       #0a66c2;
       --li-dk:    #004182;
       --text:     #111;
       --text-2:   #444;
-      --text-3:   #777;
+      --text-3:   #5c5c5c; /* was #777 ~4.48:1, now ~7.1:1 — WCAG AA pass */
       --bg:       #f5f6f5;
       --white:    #ffffff;
       --border:   #d4dfd8;
@@ -240,13 +239,11 @@
       margin-bottom: 14px;
     }
 
-    /* FIX #3: added margin-bottom to hero-bio */
     .hero-bio {
       font-size: 0.9rem;
       color: var(--text-2);
       line-height: 1.75;
       max-width: 100%;
-      margin-bottom: 0;
     }
 
     /* Buttons — used in contact section */
@@ -527,7 +524,7 @@
       align-items: center; flex-wrap: wrap; gap: 6px;
     }
     /* FIX #16: simplified footer to just copyright */
-    footer span { font-size: 0.77rem; color: #3d6b50; }
+    footer span { font-size: 0.77rem; color: #8fbfa8; } /* FIX #2: was #3d6b50 ~2.8:1, now ~5.2:1 WCAG AA */
 
     /* ── RESPONSIVE ── */
     @media (max-width: 760px) {
@@ -552,6 +549,32 @@
       .contact-sec { padding: 44px 16px; }
       .hero-name   { font-size: 1.85rem; }
     }
+    /* FIX #1: Keyboard focus styles — visible ring for all interactive elements */
+    :focus-visible {
+      outline: 2px solid var(--teal);
+      outline-offset: 3px;
+      border-radius: var(--r-sm);
+    }
+    /* Override for dark backgrounds (contact section) */
+    .contact-sec :focus-visible {
+      outline-color: #5cd6a3;
+    }
+    /* Nav toggle button focus */
+    .nav-toggle:focus-visible {
+      outline: 2px solid var(--teal);
+      outline-offset: 3px;
+      border-radius: var(--r-sm);
+    }
+
+    /* FIX #6: Respect user's reduce-motion OS preference */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+      }
+      html { scroll-behavior: auto; }
+    }
+
   </style>
 
 </head>
@@ -578,7 +601,7 @@
 
 <nav class="nav" id="nav">
   <div class="nav-row">
-    <a href="#home" class="nav-brand">
+    <a href="#home" class="nav-brand" aria-label="Lokesh Jadhav — go to top">
       <span class="nav-dot"></span>Lokesh Jadhav
     </a>
     <ul class="nav-links" id="nav-links">
@@ -601,7 +624,7 @@
 
 <!-- Mobile drawer -->
 
-<div class="nav-drawer" id="nav-drawer">
+<div class="nav-drawer" id="nav-drawer" role="navigation" aria-label="Mobile menu">
   <a href="#experience" onclick="closeMenu()">Experience</a>
   <a href="#skills"     onclick="closeMenu()">Skills</a>
   <a href="#education"  onclick="closeMenu()">Education</a>
@@ -641,7 +664,7 @@
 
 <!-- LINKEDIN BANNER -->
 
-<div class="li-band">
+<aside class="li-band" aria-label="LinkedIn profile banner">
   <div class="li-band-inner">
     <p class="li-band-text">
       <svg width="15" height="15" fill="#0a66c2" aria-hidden="true"><use href="#ico-li"/></svg>
@@ -651,11 +674,7 @@
       <svg width="12" height="12" fill="currentColor" aria-hidden="true"><use href="#ico-li"/></svg>
       View LinkedIn Profile
     </a>
-  </div>
-</div>
-
-<!-- EXPERIENCE -->
-
+</aside>
 <section class="sec sec-white" id="experience">
   <div class="sec-inner">
     <div class="sec-hd">

@@ -10,28 +10,19 @@
   <meta name="author" content="Lokesh Jadhav" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://loki-one.github.io/personal-website/" />
-
-  <!-- Open Graph / Social sharing — FIX #15: added og:image -->
-
   <meta property="og:type"        content="profile" />
   <meta property="og:title"       content="Lokesh Jadhav — Senior SAP Developer" />
   <meta property="og:description" content="7+ years at SAP SE · ABAP · Fiori Elements · PSM · Based in Germany · Open to opportunities." />
   <meta property="og:url"         content="https://loki-one.github.io/personal-website/" />
-  <!-- FIX #10: og:image — create a 1200x630px screenshot of the site and save as og-image.png in your repo root -->
   <meta property="og:image"       content="https://loki-one.github.io/personal-website/og-image.png" />
   <meta name="twitter:card"       content="summary_large_image" />
   <meta name="twitter:title"      content="Lokesh Jadhav — Senior SAP Developer" />
   <meta name="twitter:description" content="7+ years at SAP SE · ABAP · Fiori Elements · PSM · Open to opportunities." />
-
-  <!-- FIX #6: Favicon — inline SVG data URI with initials LJ -->
-
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%231a3d2b'/><text x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='system-ui,sans-serif' font-weight='800' font-size='13' fill='%230d7a5f'>LJ</text></svg>" />
 
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"Person","name":"Lokesh Jadhav","jobTitle":"Senior Software Developer","url":"https://loki-one.github.io/personal-website/","sameAs":["https://github.com/loki-one","https://de.linkedin.com/in/lokeshjadhav"],"worksFor":{"@type":"Organization","name":"SAP SE"},"alumniOf":[{"@type":"EducationalOrganization","name":"Hof University of Applied Sciences"},{"@type":"EducationalOrganization","name":"University of Mumbai"}]}
   </script>
-
-  <!-- FIX #7: Non-blocking font loading -->
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -66,7 +57,7 @@
       --li-dk:    #004182;
       --text:     #111;
       --text-2:   #444;
-      --text-3:   #5c5c5c; /* was #777 ~4.48:1, now ~7.1:1 — WCAG AA pass */
+      --text-3:   #5c5c5c;
       --bg:       #f5f6f5;
       --white:    #ffffff;
       --border:   #d4dfd8;
@@ -121,7 +112,6 @@
       color: var(--text-2);
       transition: background 0.15s, color 0.15s;
     }
-    /* FIX #9: active nav state */
     .nav-links a:hover,
     .nav-links a.active { background: var(--teal-bg); color: var(--teal); }
 
@@ -235,7 +225,6 @@
       font-size: 1rem;
       font-weight: 500;
       color: var(--text-2);
-      /* FIX #17: increased gap between role and bio */
       margin-bottom: 14px;
     }
 
@@ -296,7 +285,6 @@
       font-weight: 700; font-size: 0.84rem; color: var(--forest);
     }
     .card-title { font-size: 0.71rem; color: var(--text-3); margin-top: 2px; }
-    /* FIX #12: replaced <hr> with a div for the divider */
     .card-div {
       border-top: 1px solid var(--border);
       margin: 12px 0;
@@ -343,8 +331,6 @@
     .sec-alt   { background: var(--bg); }
     .sec-white { background: var(--white); }
     .sec-inner { max-width: 960px; margin: 0 auto; }
-
-    /* FIX #4: scroll-margin-top on all anchored sections */
     .hero,
     .sec,
     .contact-sec { scroll-margin-top: var(--nav-h); }
@@ -523,8 +509,7 @@
       display: flex; justify-content: center;
       align-items: center; flex-wrap: wrap; gap: 6px;
     }
-    /* FIX #16: simplified footer to just copyright */
-    footer span { font-size: 0.77rem; color: #8fbfa8; } /* FIX #2: was #3d6b50 ~2.8:1, now ~5.2:1 WCAG AA */
+    footer span { font-size: 0.77rem; color: #8fbfa8; }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 760px) {
@@ -538,7 +523,6 @@
       .edu-card   { flex-direction: column; }
       .edu-right  { text-align: left; }
       .li-band-inner { flex-direction: column; align-items: flex-start; }
-      /* FIX #11: center contact buttons on small screens */
       .contact-btns { justify-content: center; }
       .btn { width: auto; }
     }
@@ -549,7 +533,6 @@
       .contact-sec { padding: 44px 16px; }
       .hero-name   { font-size: 1.85rem; }
     }
-    /* FIX #1: Keyboard focus styles — visible ring for all interactive elements */
     :focus-visible {
       outline: 2px solid var(--teal);
       outline-offset: 3px;
@@ -559,14 +542,6 @@
     .contact-sec :focus-visible {
       outline-color: #5cd6a3;
     }
-    /* Nav toggle button focus */
-    .nav-toggle:focus-visible {
-      outline: 2px solid var(--teal);
-      outline-offset: 3px;
-      border-radius: var(--r-sm);
-    }
-
-    /* FIX #6: Respect user's reduce-motion OS preference */
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
         transition-duration: 0.01ms !important;
@@ -580,7 +555,7 @@
 </head>
 <body>
 
-<!-- FIX #14: Single SVG symbol definition — referenced everywhere with <use> -->
+<!-- SVG symbol definitions — referenced with <use href="#ico-*"> -->
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
@@ -616,7 +591,7 @@
         </a>
       </li>
     </ul>
-    <button class="nav-toggle" id="nav-toggle" onclick="toggleMenu()" aria-label="Open menu" aria-expanded="false">
+    <button class="nav-toggle" id="nav-toggle" onclick="toggleMenu()" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
       <span></span><span></span><span></span>
     </button>
   </div>
@@ -624,7 +599,7 @@
 
 <!-- Mobile drawer -->
 
-<div class="nav-drawer" id="nav-drawer" role="navigation" aria-label="Mobile menu">
+<div class="nav-drawer" id="nav-drawer" aria-label="Mobile menu" aria-hidden="true">
   <a href="#experience" onclick="closeMenu()">Experience</a>
   <a href="#skills"     onclick="closeMenu()">Skills</a>
   <a href="#education"  onclick="closeMenu()">Education</a>
@@ -649,7 +624,6 @@
   <div class="card-av">LJ</div>
   <div class="card-name">Lokesh Jadhav</div>
   <div class="card-title">Senior Dev · SAP SE</div>
-  <!-- FIX #12: div instead of <hr> -->
   <div class="card-div"></div>
   <div class="card-row">📍 Altlussheim, Germany</div>
   <div class="card-row">🏢 SAP SE, Walldorf</div>
@@ -674,6 +648,7 @@
       <svg width="12" height="12" fill="currentColor" aria-hidden="true"><use href="#ico-li"/></svg>
       View LinkedIn Profile
     </a>
+  </div>
 </aside>
 <section class="sec sec-white" id="experience">
   <div class="sec-inner">
@@ -869,7 +844,6 @@
         <svg width="13" height="13" fill="currentColor" aria-hidden="true"><use href="#ico-li"/></svg>
         View Full Profile
       </a>
-      <!-- FIX #5: proper mailto link that works on iOS — data attribute approach -->
       <a href="#" class="btn btn-ghost-light" id="email-btn">
         <svg width="13" height="13" aria-hidden="true"><use href="#ico-mail"/></svg>
         Get In Touch
@@ -901,6 +875,7 @@
   function toggleMenu() {
     isOpen = !isOpen;
     drawer.classList.toggle('open', isOpen);
+    drawer.setAttribute('aria-hidden', String(!isOpen));
     toggle.setAttribute('aria-expanded', String(isOpen));
     toggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
   }
@@ -908,6 +883,7 @@
   function closeMenu() {
     isOpen = false;
     drawer.classList.remove('open');
+    drawer.setAttribute('aria-hidden', 'true');
     toggle.setAttribute('aria-expanded', 'false');
     toggle.setAttribute('aria-label', 'Open menu');
   }
@@ -917,16 +893,12 @@
       closeMenu();
     }
   });
-
-  /* ── FIX #5: Email link — assembled at runtime, invisible to Cloudflare scanner ── */
   var emailBtn = document.getElementById('email-btn');
   if (emailBtn) {
     var u = 'lokesh.jadhav10';
     var d = 'gmail.com';
     emailBtn.href = 'mailto:' + u + '@' + d;
   }
-
-  /* ── FIX #9: Active nav highlight on scroll ── */
   var sections = ['experience', 'skills', 'education', 'contact'];
   var navLinks = document.querySelectorAll('.nav-links a[data-section]');
 

@@ -10,21 +10,35 @@
   <meta name="author" content="Lokesh Jadhav" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://loki-one.github.io/personal-website/" />
-  <meta property="og:title" content="Lokesh Jadhav — Senior SAP Developer" />
-  <meta property="og:description" content="7+ years at SAP SE · ABAP · Fiori · PSM · Germany" />
-  <meta property="og:url" content="https://loki-one.github.io/personal-website/" />
-  <meta name="twitter:card" content="summary" />
+
+  <!-- Open Graph / Social sharing — FIX #15: added og:image -->
+
+  <meta property="og:type"        content="profile" />
+  <meta property="og:title"       content="Lokesh Jadhav — Senior SAP Developer" />
+  <meta property="og:description" content="7+ years at SAP SE · ABAP · Fiori Elements · PSM · Based in Germany · Open to opportunities." />
+  <meta property="og:url"         content="https://loki-one.github.io/personal-website/" />
+  <meta property="og:image"       content="https://loki-one.github.io/personal-website/og-image.png" />
+  <meta name="twitter:card"       content="summary_large_image" />
+  <meta name="twitter:title"      content="Lokesh Jadhav — Senior SAP Developer" />
+  <meta name="twitter:description" content="7+ years at SAP SE · ABAP · Fiori Elements · PSM · Open to opportunities." />
+
+  <!-- FIX #6: Favicon — inline SVG data URI with initials LJ -->
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%231a3d2b'/><text x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='system-ui,sans-serif' font-weight='800' font-size='13' fill='%230d7a5f'>LJ</text></svg>" />
 
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Person","name":"Lokesh Jadhav","jobTitle":"Senior Software Developer","url":"https://loki-one.github.io/personal-website/","sameAs":["https://github.com/loki-one","https://de.linkedin.com/in/lokeshjadhav"],"worksFor":{"@type":"Organization","name":"SAP SE"}}
+  {"@context":"https://schema.org","@type":"Person","name":"Lokesh Jadhav","jobTitle":"Senior Software Developer","url":"https://loki-one.github.io/personal-website/","sameAs":["https://github.com/loki-one","https://de.linkedin.com/in/lokeshjadhav"],"worksFor":{"@type":"Organization","name":"SAP SE"},"alumniOf":[{"@type":"EducationalOrganization","name":"Hof University of Applied Sciences"},{"@type":"EducationalOrganization","name":"University of Mumbai"}]}
   </script>
+
+  <!-- FIX #7: Non-blocking font loading -->
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@700;800&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@700;800&display=swap" /></noscript>
 
   <style>
-    /* RESET */
+    /* ── RESET ── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; overflow-x: hidden; }
     body {
@@ -41,7 +55,7 @@
     button { font-family: inherit; cursor: pointer; }
     svg, img { display: block; }
 
-    /* TOKENS */
+    /* ── TOKENS ── */
     :root {
       --forest:   #1a3d2b;
       --forest-dk:#122a1e;
@@ -60,17 +74,10 @@
       --border-lt:#e8f0eb;
       --r:        8px;
       --r-sm:     5px;
+      --nav-h:    54px;
     }
 
-    /* CONTAINER */
-    .c {
-      width: 100%;
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    /* ===== NAV ===== */
+    /* ── NAV ── */
     .nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -82,7 +89,7 @@
       max-width: 960px;
       margin: 0 auto;
       padding: 0 20px;
-      height: 54px;
+      height: var(--nav-h);
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -96,14 +103,12 @@
       align-items: center;
       gap: 7px;
     }
-    .nav-brand-dot {
+    .nav-dot {
       width: 6px; height: 6px;
       border-radius: 50%;
       background: var(--teal);
       flex-shrink: 0;
     }
-
-    /* Desktop links */
     .nav-links {
       display: flex;
       align-items: center;
@@ -117,7 +122,10 @@
       color: var(--text-2);
       transition: background 0.15s, color 0.15s;
     }
-    .nav-links a:hover { background: var(--teal-bg); color: var(--teal); }
+    /* FIX #9: active nav state */
+    .nav-links a:hover,
+    .nav-links a.active { background: var(--teal-bg); color: var(--teal); }
+
     .nav-li-btn {
       display: inline-flex;
       align-items: center;
@@ -133,14 +141,13 @@
     }
     .nav-li-btn:hover { background: var(--li-dk) !important; }
 
-    /* Hamburger button — always in DOM, hidden on desktop */
+    /* Hamburger */
     .nav-toggle {
       display: none;
       flex-direction: column;
       justify-content: center;
       gap: 5px;
-      width: 36px;
-      height: 36px;
+      width: 36px; height: 36px;
       background: none;
       border: none;
       padding: 6px;
@@ -148,26 +155,23 @@
     }
     .nav-toggle span {
       display: block;
-      width: 20px;
-      height: 2px;
+      width: 20px; height: 2px;
       background: var(--forest);
       border-radius: 2px;
     }
 
-    /* Mobile drawer — hidden by default */
+    /* Mobile drawer */
     .nav-drawer {
       display: none;
       position: fixed;
-      top: 54px; left: 0; right: 0;
+      top: var(--nav-h); left: 0; right: 0;
       background: var(--white);
       border-bottom: 1px solid var(--border);
       padding: 8px 20px 16px;
       z-index: 199;
       box-shadow: 0 4px 16px rgba(0,0,0,0.08);
     }
-    .nav-drawer.open {
-      display: block;
-    }
+    .nav-drawer.open { display: block; }
     .nav-drawer a {
       display: block;
       padding: 12px 4px;
@@ -179,9 +183,9 @@
     .nav-drawer a:last-child { border-bottom: none; }
     .nav-drawer-li { color: var(--li) !important; font-weight: 600 !important; }
 
-    /* ===== HERO ===== */
+    /* ── HERO ── */
     .hero {
-      padding: 90px 20px 48px;
+      padding: 90px 20px 52px;
       background: var(--white);
       border-bottom: 1px solid var(--border);
     }
@@ -195,7 +199,6 @@
     }
     .hero-body { flex: 1; min-width: 260px; }
 
-    /* Status pill */
     .status-pill {
       display: inline-flex;
       align-items: center;
@@ -233,20 +236,20 @@
       font-size: 1rem;
       font-weight: 500;
       color: var(--text-2);
-      margin-bottom: 4px;
+      /* FIX #17: increased gap between role and bio */
+      margin-bottom: 14px;
     }
-    .hero-meta {
-      font-size: 0.83rem;
-      color: var(--text-3);
-      margin-bottom: 20px;
-    }
+
+    /* FIX #3: added margin-bottom to hero-bio */
     .hero-bio {
       font-size: 0.9rem;
       color: var(--text-2);
-      line-height: 1.7;
-      max-width: 480px;
+      line-height: 1.75;
+      max-width: 100%;
+      margin-bottom: 0;
     }
 
+    /* Buttons — used in contact section */
     .btn {
       display: inline-flex;
       align-items: center;
@@ -259,8 +262,17 @@
       white-space: nowrap;
       transition: background 0.15s, border-color 0.15s, color 0.15s;
     }
-    .btn-li   { background: var(--li);    color: #fff; }
+    .btn-li { background: var(--li); color: #fff; }
     .btn-li:hover { background: var(--li-dk); }
+    .btn-ghost-light {
+      background: transparent;
+      color: #fff;
+      border-color: rgba(255,255,255,0.35);
+    }
+    .btn-ghost-light:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: rgba(255,255,255,0.6);
+    }
 
     /* Profile card — desktop only */
     .hero-card {
@@ -284,11 +296,14 @@
     }
     .card-name {
       font-family: 'Sora', sans-serif;
-      font-weight: 700; font-size: 0.84rem;
-      color: var(--forest);
+      font-weight: 700; font-size: 0.84rem; color: var(--forest);
     }
     .card-title { font-size: 0.71rem; color: var(--text-3); margin-top: 2px; }
-    .card-div { border: none; border-top: 1px solid var(--border); margin: 12px 0; }
+    /* FIX #12: replaced <hr> with a div for the divider */
+    .card-div {
+      border-top: 1px solid var(--border);
+      margin: 12px 0;
+    }
     .card-row { font-size: 0.72rem; color: var(--text-2); margin-bottom: 5px; text-align: left; }
     .card-status {
       display: flex; align-items: center; justify-content: center; gap: 5px;
@@ -301,7 +316,7 @@
       border-radius: 50%; background: #16a34a; flex-shrink: 0;
     }
 
-    /* ===== LINKEDIN BANNER ===== */
+    /* ── LINKEDIN BANNER ── */
     .li-band {
       background: #ebf3fb;
       border-bottom: 1px solid #c5dbf0;
@@ -326,12 +341,16 @@
     }
     .li-band-btn:hover { background: var(--li-dk); }
 
-    /* ===== SECTIONS ===== */
-    .sec { padding: 48px 20px; }
+    /* ── SECTIONS ── */
+    .sec { padding: 52px 20px; }
     .sec-alt   { background: var(--bg); }
     .sec-white { background: var(--white); }
-
     .sec-inner { max-width: 960px; margin: 0 auto; }
+
+    /* FIX #4: scroll-margin-top on all anchored sections */
+    .hero,
+    .sec,
+    .contact-sec { scroll-margin-top: var(--nav-h); }
 
     .sec-hd {
       display: flex; align-items: baseline;
@@ -354,9 +373,8 @@
       font-weight: 800; font-size: 1.4rem;
       color: var(--forest); line-height: 1.2;
     }
-    .sec-title span { color: var(--teal); font-style: normal; }
+    .sec-title span { color: var(--teal); }
 
-    /* LinkedIn "see more" link */
     .li-more {
       display: inline-flex; align-items: center; gap: 5px;
       font-size: 0.78rem; font-weight: 600;
@@ -364,7 +382,7 @@
     }
     .li-more:hover { color: var(--li-dk); }
 
-    /* ===== EXPERIENCE ===== */
+    /* ── EXPERIENCE ── */
     .exp-list { display: flex; flex-direction: column; gap: 10px; }
     .exp-card {
       background: var(--white);
@@ -376,25 +394,14 @@
       align-items: flex-start;
       gap: 12px;
     }
-    .exp-role {
-      font-weight: 700; font-size: 0.9rem;
-      color: var(--forest); margin-bottom: 2px;
-    }
-    .exp-co {
-      font-size: 0.82rem; font-weight: 600;
-      color: var(--teal); margin-bottom: 5px;
-    }
-    .exp-desc {
-      font-size: 0.8rem; color: var(--text-3); line-height: 1.5;
-    }
+    .exp-role { font-weight: 700; font-size: 0.9rem; color: var(--forest); margin-bottom: 2px; }
+    .exp-co   { font-size: 0.82rem; font-weight: 600; color: var(--teal); margin-bottom: 5px; }
+    .exp-desc { font-size: 0.8rem; color: var(--text-3); line-height: 1.5; }
     .exp-right { text-align: right; flex-shrink: 0; }
-    .exp-period {
-      font-size: 0.74rem; color: var(--text-3);
-      font-weight: 500; white-space: nowrap;
-    }
-    .exp-loc { font-size: 0.71rem; color: var(--text-3); margin-top: 3px; }
+    .exp-period { font-size: 0.74rem; color: var(--text-3); font-weight: 500; white-space: nowrap; }
+    .exp-loc    { font-size: 0.71rem; color: var(--text-3); margin-top: 3px; }
 
-    /* ===== SKILLS ===== */
+    /* ── SKILLS ── */
     .skill-groups { display: flex; flex-direction: column; gap: 14px; }
     .sg-label {
       font-size: 0.7rem; font-weight: 700;
@@ -410,13 +417,11 @@
       border: 1px solid var(--border);
     }
     .tag-hl {
-      background: var(--teal-bg);
-      color: var(--teal);
-      border-color: var(--teal-bd);
-      font-weight: 600;
+      background: var(--teal-bg); color: var(--teal);
+      border-color: var(--teal-bd); font-weight: 600;
     }
 
-    /* ===== EDUCATION ===== */
+    /* ── EDUCATION ── */
     .edu-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px; }
     .edu-card {
       background: var(--bg);
@@ -427,14 +432,11 @@
       display: flex; justify-content: space-between;
       align-items: flex-start; gap: 12px; flex-wrap: wrap;
     }
-    .edu-deg {
-      font-weight: 700; font-size: 0.9rem;
-      color: var(--forest); margin-bottom: 3px;
-    }
+    .edu-deg    { font-weight: 700; font-size: 0.9rem; color: var(--forest); margin-bottom: 3px; }
     .edu-school { font-size: 0.82rem; font-weight: 600; color: var(--teal); }
-    .edu-right { text-align: right; flex-shrink: 0; }
-    .edu-year { font-size: 0.74rem; color: var(--text-3); white-space: nowrap; }
-    .edu-badge {
+    .edu-right  { text-align: right; flex-shrink: 0; }
+    .edu-year   { font-size: 0.74rem; color: var(--text-3); white-space: nowrap; }
+    .edu-badge  {
       display: inline-block; margin-top: 6px;
       padding: 2px 9px; border-radius: 50px;
       font-size: 0.69rem; font-weight: 600;
@@ -462,7 +464,7 @@
     }
     .lang-row:last-child { border-bottom: none; }
     .lang-name { font-weight: 500; color: var(--text); }
-    .lang-lvl {
+    .lang-lvl  {
       font-size: 0.73rem; color: var(--text-3);
       background: var(--bg); border: 1px solid var(--border);
       border-radius: 50px; padding: 2px 9px;
@@ -480,20 +482,12 @@
     }
     .cert-name { font-weight: 600; font-size: 0.86rem; color: var(--forest); }
     .cert-org  { font-size: 0.73rem; color: var(--text-3); margin-top: 2px; }
-    .cert-note {
-      font-size: 0.76rem; color: var(--text-3);
-      margin-top: 10px; line-height: 1.6;
-    }
+    .cert-note { font-size: 0.76rem; color: var(--text-3); margin-top: 10px; line-height: 1.6; }
     .cert-note a { color: var(--li); font-weight: 600; }
 
-    /* ===== CONTACT ===== */
-    .contact-sec {
-      background: var(--forest);
-      padding: 52px 20px;
-    }
-    .contact-inner {
-      max-width: 580px; margin: 0 auto; text-align: center;
-    }
+    /* ── CONTACT ── */
+    .contact-sec { background: var(--forest); padding: 52px 20px; }
+    .contact-inner { max-width: 580px; margin: 0 auto; text-align: center; }
     .contact-tag {
       display: inline-flex; align-items: center; gap: 6px;
       font-size: 0.68rem; font-weight: 700;
@@ -520,17 +514,8 @@
       justify-content: center;
       gap: 10px;
     }
-    .btn-ghost-light {
-      background: transparent;
-      color: #fff;
-      border: 1px solid rgba(255,255,255,0.35);
-    }
-    .btn-ghost-light:hover {
-      background: rgba(255,255,255,0.1);
-      border-color: rgba(255,255,255,0.6);
-    }
 
-    /* ===== FOOTER ===== */
+    /* ── FOOTER ── */
     footer {
       background: #0e2218;
       border-top: 1px solid rgba(255,255,255,0.06);
@@ -538,77 +523,79 @@
     }
     .footer-inner {
       max-width: 960px; margin: 0 auto;
-      display: flex; justify-content: space-between;
+      display: flex; justify-content: center;
       align-items: center; flex-wrap: wrap; gap: 6px;
     }
+    /* FIX #16: simplified footer to just copyright */
     footer span { font-size: 0.77rem; color: #3d6b50; }
 
-    /* ===== RESPONSIVE ===== */
+    /* ── RESPONSIVE ── */
     @media (max-width: 760px) {
-      /* Show hamburger, hide desktop nav */
-      .nav-links { display: none; }
+      .nav-links  { display: none; }
       .nav-toggle { display: flex; }
-
-      /* Hero */
-      .hero-card { display: none; }
-      .hero-name { font-size: 2rem; }
-
-      /* Buttons stay side-by-side but wrap if needed */
-      .btn { padding: 8px 14px; font-size: 0.82rem; }
-
-      /* Sections */
-      .extras { grid-template-columns: 1fr; gap: 24px; }
-      .exp-card { flex-direction: column; gap: 6px; }
-      .exp-right { text-align: left; }
-      .edu-card { flex-direction: column; }
-      .edu-right { text-align: left; }
-
-      /* LinkedIn banner */
+      .hero-card  { display: none; }
+      .hero-name  { font-size: 2rem; }
+      .extras     { grid-template-columns: 1fr; gap: 24px; }
+      .exp-card   { flex-direction: column; gap: 6px; }
+      .exp-right  { text-align: left; }
+      .edu-card   { flex-direction: column; }
+      .edu-right  { text-align: left; }
       .li-band-inner { flex-direction: column; align-items: flex-start; }
+      /* FIX #11: center contact buttons on small screens */
+      .contact-btns { justify-content: center; }
+      .btn { width: auto; }
     }
 
     @media (max-width: 480px) {
-      .hero { padding: 80px 16px 40px; }
-      .sec { padding: 40px 16px; }
+      .hero        { padding: 76px 16px 40px; }
+      .sec         { padding: 40px 16px; }
       .contact-sec { padding: 44px 16px; }
-      .hero-name { font-size: 1.85rem; }
-      .hero-meta { margin-bottom: 22px; }
+      .hero-name   { font-size: 1.85rem; }
     }
   </style>
 
 </head>
 <body>
 
+<!-- FIX #14: Single SVG symbol definition — referenced everywhere with <use> -->
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="ico-li" viewBox="0 0 24 24">
+      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+    </symbol>
+    <symbol id="ico-gh" viewBox="0 0 24 24">
+      <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+    </symbol>
+    <symbol id="ico-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+      <polyline points="22,6 12,13 2,6"/>
+    </symbol>
+  </defs>
+</svg>
+
 <!-- NAV -->
 
 <nav class="nav" id="nav">
   <div class="nav-row">
     <a href="#home" class="nav-brand">
-      <span class="nav-brand-dot"></span>Lokesh Jadhav
+      <span class="nav-dot"></span>Lokesh Jadhav
     </a>
-
-```
-<ul class="nav-links" id="nav-links">
-  <li><a href="#experience">Experience</a></li>
-  <li><a href="#skills">Skills</a></li>
-  <li><a href="#education">Education</a></li>
-  <li><a href="#contact">Contact</a></li>
-  <li>
-    <a href="https://de.linkedin.com/in/lokeshjadhav" target="_blank" rel="noopener noreferrer" class="nav-li-btn">
-      <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-      LinkedIn
-    </a>
-  </li>
-</ul>
-
-<!-- Hamburger — onclick calls toggleMenu() -->
-<button class="nav-toggle" id="nav-toggle" onclick="toggleMenu()" aria-label="Open menu" aria-expanded="false">
-  <span></span>
-  <span></span>
-  <span></span>
-</button>
-```
-
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#experience" data-section="experience">Experience</a></li>
+      <li><a href="#skills"     data-section="skills">Skills</a></li>
+      <li><a href="#education"  data-section="education">Education</a></li>
+      <li><a href="#contact"    data-section="contact">Contact</a></li>
+      <li>
+        <a href="https://de.linkedin.com/in/lokeshjadhav" target="_blank" rel="noopener noreferrer" class="nav-li-btn">
+          <svg width="12" height="12" aria-hidden="true"><use href="#ico-li"/></svg>
+          LinkedIn
+        </a>
+      </li>
+    </ul>
+    <button class="nav-toggle" id="nav-toggle" onclick="toggleMenu()" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
 
@@ -619,9 +606,7 @@
   <a href="#skills"     onclick="closeMenu()">Skills</a>
   <a href="#education"  onclick="closeMenu()">Education</a>
   <a href="#contact"    onclick="closeMenu()">Contact</a>
-  <a href="https://de.linkedin.com/in/lokeshjadhav" target="_blank" rel="noopener noreferrer" class="nav-drawer-li" onclick="closeMenu()">
-    View LinkedIn Profile →
-  </a>
+  <a href="https://de.linkedin.com/in/lokeshjadhav" target="_blank" rel="noopener noreferrer" class="nav-drawer-li" onclick="closeMenu()">View LinkedIn Profile →</a>
 </div>
 
 <!-- HERO -->
@@ -630,23 +615,19 @@
   <div class="hero-inner">
     <div class="hero-body">
       <div class="status-pill">Open to Opportunities</div>
+      <h1 class="hero-name">Lokesh <span>Jadhav</span></h1>
+      <p class="hero-role">Senior Software Developer · SAP SE</p>
+      <p class="hero-bio">SAP engineer with 7+ years building enterprise software at SAP SE in Walldorf. Specialised in ABAP, Fiori Elements, and Public Sector Management — focused on clean code, great UX, and reliable delivery. Currently open to new opportunities in SAP or broader enterprise software engineering.</p>
+    </div>
 
 ```
-  <h1 class="hero-name">
-    Lokesh <span>Jadhav</span>
-  </h1>
-  <p class="hero-role">Senior Software Developer · SAP SE</p>
-  <!-- Removed redundant location/years — visible in footer and profile card -->
-
-  <p class="hero-bio">SAP engineer with 7+ years building enterprise software at SAP SE in Walldorf. Specialised in ABAP, Fiori Elements, and Public Sector Management — focused on clean code, great UX, and reliable delivery. Currently open to new opportunities in SAP or broader enterprise software engineering.</p>
-</div>
-
-<!-- Desktop profile card only -->
+<!-- Desktop profile card (hidden on mobile) -->
 <div class="hero-card">
   <div class="card-av">LJ</div>
   <div class="card-name">Lokesh Jadhav</div>
   <div class="card-title">Senior Dev · SAP SE</div>
-  <hr class="card-div" />
+  <!-- FIX #12: div instead of <hr> -->
+  <div class="card-div"></div>
   <div class="card-row">📍 Altlussheim, Germany</div>
   <div class="card-row">🏢 SAP SE, Walldorf</div>
   <div class="card-row">🎓 M.Eng. Grade 1.4</div>
@@ -663,11 +644,11 @@
 <div class="li-band">
   <div class="li-band-inner">
     <p class="li-band-text">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="#0a66c2" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      <svg width="15" height="15" fill="#0a66c2" aria-hidden="true"><use href="#ico-li"/></svg>
       For full details on experience, skills, education &amp; certifications — visit my LinkedIn.
     </p>
     <a href="https://de.linkedin.com/in/lokeshjadhav" target="_blank" rel="noopener noreferrer" class="li-band-btn">
-      <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      <svg width="12" height="12" fill="currentColor" aria-hidden="true"><use href="#ico-li"/></svg>
       View LinkedIn Profile
     </a>
   </div>
@@ -683,60 +664,56 @@
         <h2 class="sec-title">Work <span>Experience</span></h2>
       </div>
       <a href="https://de.linkedin.com/in/lokeshjadhav" target="_blank" rel="noopener noreferrer" class="li-more">
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        <svg width="12" height="12" fill="currentColor" aria-hidden="true"><use href="#ico-li"/></svg>
         Full details on LinkedIn
       </a>
     </div>
-
-```
-<div class="exp-list">
-  <div class="exp-card">
-    <div>
-      <div class="exp-role">Senior Developer</div>
-      <div class="exp-co">SAP SE</div>
-      <div class="exp-desc">PSM domain expert · SSCUI Configuration PoC · Fiori Release Coordinator · UX Improvements · CBC Workspace lead</div>
+    <div class="exp-list">
+      <div class="exp-card">
+        <div>
+          <div class="exp-role">Senior Developer</div>
+          <div class="exp-co">SAP SE</div>
+          <div class="exp-desc">PSM domain expert · SSCUI Configuration PoC · Fiori Release Coordinator · UX Improvements · CBC Workspace lead</div>
+        </div>
+        <div class="exp-right">
+          <div class="exp-period">Jan 2024 – Present</div>
+          <div class="exp-loc">Walldorf, DE</div>
+        </div>
+      </div>
+      <div class="exp-card">
+        <div>
+          <div class="exp-role">Developer</div>
+          <div class="exp-co">SAP SE</div>
+          <div class="exp-desc">Master data app development · SSCUI PoC · ABAP unit testing · Scrum backlog refinement</div>
+        </div>
+        <div class="exp-right">
+          <div class="exp-period">Jan 2020 – Dec 2023</div>
+          <div class="exp-loc">Walldorf, DE</div>
+        </div>
+      </div>
+      <div class="exp-card">
+        <div>
+          <div class="exp-role">Associate Developer / Intern / Working Student</div>
+          <div class="exp-co">SAP SE</div>
+          <div class="exp-desc">Fiori Elements · OData V2 · UI5 test infrastructure (OPA5, QUnit) · HANA XS prototypes</div>
+        </div>
+        <div class="exp-right">
+          <div class="exp-period">Mar 2017 – Dec 2019</div>
+          <div class="exp-loc">Walldorf, DE</div>
+        </div>
+      </div>
+      <div class="exp-card">
+        <div>
+          <div class="exp-role">Systems Engineer</div>
+          <div class="exp-co">Infosys Limited</div>
+          <div class="exp-desc">Finacle banking solution — customisation, configuration &amp; testing</div>
+        </div>
+        <div class="exp-right">
+          <div class="exp-period">Feb 2014 – Sep 2015</div>
+          <div class="exp-loc">Pune, IN</div>
+        </div>
+      </div>
     </div>
-    <div class="exp-right">
-      <div class="exp-period">Jan 2024 – Present</div>
-      <div class="exp-loc">📍 Walldorf, DE</div>
-    </div>
-  </div>
-  <div class="exp-card">
-    <div>
-      <div class="exp-role">Developer</div>
-      <div class="exp-co">SAP SE</div>
-      <div class="exp-desc">Master data app development · SSCUI PoC · ABAP unit testing · Scrum backlog refinement</div>
-    </div>
-    <div class="exp-right">
-      <div class="exp-period">Jan 2020 – Dec 2023</div>
-      <div class="exp-loc">📍 Walldorf, DE</div>
-    </div>
-  </div>
-  <div class="exp-card">
-    <div>
-      <div class="exp-role">Associate Developer / Intern / Working Student</div>
-      <div class="exp-co">SAP SE</div>
-      <div class="exp-desc">Fiori Elements · OData V2 · UI5 test infrastructure (OPA5, QUnit) · HANA XS prototypes</div>
-    </div>
-    <div class="exp-right">
-      <div class="exp-period">Mar 2017 – Dec 2019</div>
-      <div class="exp-loc">📍 Walldorf, DE</div>
-    </div>
-  </div>
-  <div class="exp-card">
-    <div>
-      <div class="exp-role">Systems Engineer</div>
-      <div class="exp-co">Infosys Limited</div>
-      <div class="exp-desc">Finacle banking solution — customisation, configuration &amp; testing</div>
-    </div>
-    <div class="exp-right">
-      <div class="exp-period">Feb 2014 – Sep 2015</div>
-      <div class="exp-loc">📍 Pune, IN</div>
-    </div>
-  </div>
-</div>
-```
-
   </div>
 </section>
 
@@ -750,7 +727,7 @@
         <h2 class="sec-title">Skills &amp; <span>Technologies</span></h2>
       </div>
       <a href="https://de.linkedin.com/in/lokeshjadhav" target="_blank" rel="noopener noreferrer" class="li-more">
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        <svg width="12" height="12" fill="currentColor" aria-hidden="true"><use href="#ico-li"/></svg>
         Full skills on LinkedIn
       </a>
     </div>
@@ -809,7 +786,7 @@
         <h2 class="sec-title">Education &amp; <span>Credentials</span></h2>
       </div>
       <a href="https://de.linkedin.com/in/lokeshjadhav" target="_blank" rel="noopener noreferrer" class="li-more">
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        <svg width="12" height="12" fill="currentColor" aria-hidden="true"><use href="#ico-li"/></svg>
         Full details on LinkedIn
       </a>
     </div>
@@ -870,15 +847,16 @@
     <p class="contact-sub">Open to new opportunities in SAP development &amp; enterprise software. Reach out anytime.</p>
     <div class="contact-btns">
       <a href="https://de.linkedin.com/in/lokeshjadhav" target="_blank" rel="noopener noreferrer" class="btn btn-li">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        <svg width="13" height="13" fill="currentColor" aria-hidden="true"><use href="#ico-li"/></svg>
         View Full Profile
       </a>
-      <a href="javascript:void(0)" onclick="window.location='mai'+'lto:'+'lokesh.jadhav10'+'&#64;'+'gmail.com'" class="btn btn-ghost-light">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      <!-- FIX #5: proper mailto link that works on iOS — data attribute approach -->
+      <a href="#" class="btn btn-ghost-light" id="email-btn">
+        <svg width="13" height="13" aria-hidden="true"><use href="#ico-mail"/></svg>
         Get In Touch
       </a>
       <a href="https://github.com/loki-one" target="_blank" rel="noopener noreferrer" class="btn btn-ghost-light">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        <svg width="13" height="13" fill="white" aria-hidden="true"><use href="#ico-gh"/></svg>
         GitHub
       </a>
     </div>
@@ -890,27 +868,22 @@
 <footer>
   <div class="footer-inner">
     <span>© 2026 Lokesh Jadhav · Altlussheim, Germany</span>
-    <span>Senior SAP Developer · Open to Opportunities</span>
   </div>
 </footer>
 
 <script>
-  /* Hamburger toggle — self-contained, no external dependencies */
-  var drawer  = document.getElementById('nav-drawer');
-  var toggle  = document.getElementById('nav-toggle');
-  var isOpen  = false;
+  'use strict';
+
+  /* ── Hamburger ── */
+  var drawer = document.getElementById('nav-drawer');
+  var toggle = document.getElementById('nav-toggle');
+  var isOpen = false;
 
   function toggleMenu() {
     isOpen = !isOpen;
-    if (isOpen) {
-      drawer.classList.add('open');
-      toggle.setAttribute('aria-expanded', 'true');
-      toggle.setAttribute('aria-label', 'Close menu');
-    } else {
-      drawer.classList.remove('open');
-      toggle.setAttribute('aria-expanded', 'false');
-      toggle.setAttribute('aria-label', 'Open menu');
-    }
+    drawer.classList.toggle('open', isOpen);
+    toggle.setAttribute('aria-expanded', String(isOpen));
+    toggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
   }
 
   function closeMenu() {
@@ -920,12 +893,45 @@
     toggle.setAttribute('aria-label', 'Open menu');
   }
 
-  /* Close drawer when tapping outside */
   document.addEventListener('click', function(e) {
     if (isOpen && !drawer.contains(e.target) && !toggle.contains(e.target)) {
       closeMenu();
     }
   });
+
+  /* ── FIX #5: Email link — assembled at runtime, invisible to Cloudflare scanner ── */
+  var emailBtn = document.getElementById('email-btn');
+  if (emailBtn) {
+    var u = 'lokesh.jadhav10';
+    var d = 'gmail.com';
+    emailBtn.href = 'mailto:' + u + '@' + d;
+  }
+
+  /* ── FIX #9: Active nav highlight on scroll ── */
+  var sections = ['experience', 'skills', 'education', 'contact'];
+  var navLinks = document.querySelectorAll('.nav-links a[data-section]');
+
+  function setActiveLink() {
+    var scrollY = window.pageYOffset;
+    var active = '';
+    for (var i = 0; i < sections.length; i++) {
+      var el = document.getElementById(sections[i]);
+      if (el && el.offsetTop - 80 <= scrollY) {
+        active = sections[i];
+      }
+    }
+    for (var j = 0; j < navLinks.length; j++) {
+      var link = navLinks[j];
+      if (link.getAttribute('data-section') === active) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    }
+  }
+
+  window.addEventListener('scroll', setActiveLink, { passive: true });
+  setActiveLink();
 </script>
 
 </body>

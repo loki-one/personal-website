@@ -16,7 +16,7 @@
   <meta name="twitter:card" content="summary" />
 
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Person","name":"Lokesh Jadhav","jobTitle":"Senior Software Developer","url":"https://loki-one.github.io/personal-website/","sameAs":["https://github.com/loki-one","https://www.linkedin.com/in/lokesh-jadhav"],"worksFor":{"@type":"Organization","name":"SAP SE"}}
+  {"@context":"https://schema.org","@type":"Person","name":"Lokesh Jadhav","jobTitle":"Senior Software Developer","url":"https://loki-one.github.io/personal-website/","sameAs":["https://github.com/loki-one","https://de.linkedin.com/in/lokeshjadhav"],"worksFor":{"@type":"Organization","name":"SAP SE"}}
   </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -238,15 +238,15 @@
     .hero-meta {
       font-size: 0.83rem;
       color: var(--text-3);
-      margin-bottom: 28px;
+      margin-bottom: 20px;
+    }
+    .hero-bio {
+      font-size: 0.9rem;
+      color: var(--text-2);
+      line-height: 1.7;
+      max-width: 480px;
     }
 
-    /* CTA buttons — side by side, NOT full width */
-    .hero-cta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
     .btn {
       display: inline-flex;
       align-items: center;
@@ -261,12 +261,6 @@
     }
     .btn-li   { background: var(--li);    color: #fff; }
     .btn-li:hover { background: var(--li-dk); }
-    .btn-ghost {
-      background: transparent;
-      color: var(--text-2);
-      border-color: var(--border);
-    }
-    .btn-ghost:hover { border-color: var(--teal); color: var(--teal); }
 
     /* Profile card — desktop only */
     .hero-card {
@@ -520,34 +514,20 @@
       font-size: 0.86rem; color: #90b8a4;
       margin-bottom: 28px; line-height: 1.7;
     }
-    .contact-cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
+    .contact-btns {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
       gap: 10px;
     }
-    .cc {
-      display: flex; flex-direction: column;
-      align-items: center; gap: 7px;
-      padding: 18px 10px;
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: var(--r);
-      transition: background 0.15s, border-color 0.15s;
+    .btn-ghost-light {
+      background: transparent;
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.35);
     }
-    .cc:hover { background: rgba(255,255,255,0.13); border-color: rgba(255,255,255,0.25); }
-    .cc-ico {
-      width: 40px; height: 40px; border-radius: 8px;
-      display: flex; align-items: center; justify-content: center; font-size: 1.1rem;
-    }
-    .cc-ico-teal { background: rgba(13,122,95,0.4); }
-    .cc-ico-li   { background: rgba(10,102,194,0.5); }
-    .cc-lbl {
-      font-size: 0.66rem; font-weight: 700;
-      letter-spacing: 0.1em; text-transform: uppercase; color: #6abf95;
-    }
-    .cc-val {
-      font-size: 0.78rem; font-weight: 600;
-      color: #fff; word-break: break-all; text-align: center;
+    .btn-ghost-light:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: rgba(255,255,255,0.6);
     }
 
     /* ===== FOOTER ===== */
@@ -574,12 +554,10 @@
       .hero-name { font-size: 2rem; }
 
       /* Buttons stay side-by-side but wrap if needed */
-      .hero-cta { gap: 8px; }
       .btn { padding: 8px 14px; font-size: 0.82rem; }
 
       /* Sections */
       .extras { grid-template-columns: 1fr; gap: 24px; }
-      .contact-cards { grid-template-columns: 1fr; gap: 8px; }
       .exp-card { flex-direction: column; gap: 6px; }
       .exp-right { text-align: left; }
       .edu-card { flex-direction: column; }
@@ -616,7 +594,7 @@
   <li><a href="#education">Education</a></li>
   <li><a href="#contact">Contact</a></li>
   <li>
-    <a href="https://www.linkedin.com/in/lokesh-jadhav" target="_blank" rel="noopener noreferrer" class="nav-li-btn">
+    <a href="https://de.linkedin.com/in/lokeshjadhav" target="_blank" rel="noopener noreferrer" class="nav-li-btn">
       <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
       LinkedIn
     </a>
@@ -641,7 +619,7 @@
   <a href="#skills"     onclick="closeMenu()">Skills</a>
   <a href="#education"  onclick="closeMenu()">Education</a>
   <a href="#contact"    onclick="closeMenu()">Contact</a>
-  <a href="https://www.linkedin.com/in/lokesh-jadhav" target="_blank" rel="noopener noreferrer" class="nav-drawer-li" onclick="closeMenu()">
+  <a href="https://de.linkedin.com/in/lokeshjadhav" target="_blank" rel="noopener noreferrer" class="nav-drawer-li" onclick="closeMenu()">
     View LinkedIn Profile →
   </a>
 </div>
@@ -660,20 +638,7 @@
   <p class="hero-role">Senior Software Developer · SAP SE</p>
   <!-- Removed redundant location/years — visible in footer and profile card -->
 
-  <div class="hero-cta">
-    <a href="https://www.linkedin.com/in/lokesh-jadhav" target="_blank" rel="noopener noreferrer" class="btn btn-li">
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-      View Full Profile
-    </a>
-    <a href="mailto:lokesh.jadhav10&#64;gmail.com" class="btn btn-ghost">
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-      Get In Touch
-    </a>
-    <a href="https://github.com/loki-one" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-      GitHub
-    </a>
-  </div>
+  <p class="hero-bio">SAP engineer with 7+ years building enterprise software at SAP SE in Walldorf. Specialised in ABAP, Fiori Elements, and Public Sector Management — focused on clean code, great UX, and reliable delivery. Currently open to new opportunities in SAP or broader enterprise software engineering.</p>
 </div>
 
 <!-- Desktop profile card only -->
@@ -701,7 +666,7 @@
       <svg width="15" height="15" viewBox="0 0 24 24" fill="#0a66c2" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
       For full details on experience, skills, education &amp; certifications — visit my LinkedIn.
     </p>
-    <a href="https://www.linkedin.com/in/lokesh-jadhav" target="_blank" rel="noopener noreferrer" class="li-band-btn">
+    <a href="https://de.linkedin.com/in/lokeshjadhav" target="_blank" rel="noopener noreferrer" class="li-band-btn">
       <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
       View LinkedIn Profile
     </a>
@@ -717,7 +682,7 @@
         <div class="sec-tag">Career</div>
         <h2 class="sec-title">Work <span>Experience</span></h2>
       </div>
-      <a href="https://www.linkedin.com/in/lokesh-jadhav" target="_blank" rel="noopener noreferrer" class="li-more">
+      <a href="https://de.linkedin.com/in/lokeshjadhav" target="_blank" rel="noopener noreferrer" class="li-more">
         <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
         Full details on LinkedIn
       </a>
@@ -784,7 +749,7 @@
         <div class="sec-tag">Expertise</div>
         <h2 class="sec-title">Skills &amp; <span>Technologies</span></h2>
       </div>
-      <a href="https://www.linkedin.com/in/lokesh-jadhav" target="_blank" rel="noopener noreferrer" class="li-more">
+      <a href="https://de.linkedin.com/in/lokeshjadhav" target="_blank" rel="noopener noreferrer" class="li-more">
         <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
         Full skills on LinkedIn
       </a>
@@ -843,7 +808,7 @@
         <div class="sec-tag">Academic</div>
         <h2 class="sec-title">Education &amp; <span>Credentials</span></h2>
       </div>
-      <a href="https://www.linkedin.com/in/lokesh-jadhav" target="_blank" rel="noopener noreferrer" class="li-more">
+      <a href="https://de.linkedin.com/in/lokeshjadhav" target="_blank" rel="noopener noreferrer" class="li-more">
         <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
         Full details on LinkedIn
       </a>
@@ -889,7 +854,7 @@
         </div>
         <p class="cert-note">
           For all certifications &amp; endorsements,
-          <a href="https://www.linkedin.com/in/lokesh-jadhav" target="_blank" rel="noopener noreferrer">view my LinkedIn profile →</a>
+          <a href="https://de.linkedin.com/in/lokeshjadhav" target="_blank" rel="noopener noreferrer">view my LinkedIn profile →</a>
         </p>
       </div>
     </div>
@@ -903,25 +868,18 @@
     <div class="contact-tag">Contact</div>
     <h2 class="contact-title">Let's <span>Connect</span></h2>
     <p class="contact-sub">Open to new opportunities in SAP development &amp; enterprise software. Reach out anytime.</p>
-    <div class="contact-cards">
-      <a href="mailto:lokesh.jadhav10&#64;gmail.com" class="cc">
-        <div class="cc-ico cc-ico-teal">✉️</div>
-        <div class="cc-lbl">Email</div>
-        <div class="cc-val">lokesh.jadhav10&#64;gmail.com</div>
+    <div class="contact-btns">
+      <a href="https://de.linkedin.com/in/lokeshjadhav" target="_blank" rel="noopener noreferrer" class="btn btn-li">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        View Full Profile
       </a>
-      <a href="https://www.linkedin.com/in/lokesh-jadhav" target="_blank" rel="noopener noreferrer" class="cc">
-        <div class="cc-ico cc-ico-li">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-        </div>
-        <div class="cc-lbl">LinkedIn</div>
-        <div class="cc-val">lokesh-jadhav</div>
+      <a href="javascript:void(0)" onclick="window.location='mai'+'lto:'+'lokesh.jadhav10'+'&#64;'+'gmail.com'" class="btn btn-ghost-light">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Get In Touch
       </a>
-      <a href="https://github.com/loki-one" target="_blank" rel="noopener noreferrer" class="cc">
-        <div class="cc-ico cc-ico-teal">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-        </div>
-        <div class="cc-lbl">GitHub</div>
-        <div class="cc-val">loki-one</div>
+      <a href="https://github.com/loki-one" target="_blank" rel="noopener noreferrer" class="btn btn-ghost-light">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        GitHub
       </a>
     </div>
   </div>
